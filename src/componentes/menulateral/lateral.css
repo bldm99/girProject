@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+
+
+.lateral {
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18%;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding: 20px 8px;
+  box-sizing: border-box;
+  z-index: 2;
+  
+}
+
+.lateral ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 40%;
+  box-sizing: border-box;
+  font-size: calc(1rem * .8);
+}
+
+.lateral li {
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+
+  padding: .5rem;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.lateral li:hover {
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.lateral button {
+  background: rgb(87, 53, 53);
+  color: white;
+  cursor: pointer;
+}
+
+.lateral .icon {
+  margin-right: 10px;
+}
+
+.lateral li a {
+  text-decoration: none;
+  color: #0a0a0a;
+}
+
+.lateral li a:hover {
+  color: #fff;
+}
+
+.lateral li button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+}
+
+.lateral li button:focus {
+  outline: none;
+}
+
+#cerrar-sesion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lateral {
+    width: 50%;
+    z-index: 2;
+  }
+}

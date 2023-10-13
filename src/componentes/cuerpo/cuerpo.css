@@ -1,0 +1,49 @@
+.cuerpo {
+    padding-top: 76px;
+    background: orange;
+    background-color: #f1f1f1;
+    
+    display: grid;
+    grid-template-columns: 18% 82%;
+    /*grid-template-columns: repeat(2, 70% 30%);*/
+
+
+}
+
+.cuerpo .lado {
+    position: relative;
+    
+}
+
+.cuerpo .componentes {
+    background-color: #e7e7e7;
+    background: red;
+    
+    position: relative;
+}
+
+.cuerpo .fix {
+    position: fixed;
+    top: 70px;
+    left: -5px;
+    padding: 10px;
+    z-index: 3;
+    display: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .cuerpo {
+        padding-top: 76px;
+        background: orange;
+        display: grid;
+        grid-template-columns: 100%;
+
+    }
+    .cuerpo .fix {
+        display: flex;
+    }
+
+    
+
+}
+

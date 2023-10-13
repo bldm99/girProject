@@ -1,0 +1,73 @@
+
+.menu{
+    display: flex;
+    background: black;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    padding: 0px 8px;
+    box-sizing: border-box; 
+   
+
+    
+}
+.menu header {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    
+}
+
+.menu header img{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+.menu .menu-lista{
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    gap: 14px;
+    align-items:center ;
+    justify-content: space-around;
+    /*background: blue;*/
+    color: white;
+    font-size: 18px;
+    list-style: none;
+   
+}
+
+.menu .menu-lista a{
+    position: relative;
+    padding-bottom: 20px;  /*paso 1 efecto hover ventana emergente*/
+    color: white;  
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.menu .menu-lista a:hover{
+    
+    color: rgb(16, 223, 26);  
+    
+    
+}
+
+
+
+.menu__list__item:hover .my__caja , .menu__list__item:hover .my__caja2 {
+    opacity: 1;
+    display: flex; /*paso 3 efecto hover ventana emergente*/
+    visibility: visible;
+    
+   
+
+    
+}
+
