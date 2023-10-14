@@ -1,73 +1,69 @@
-
-.menu{
+.menu {
     display: flex;
-    background: black;
+    background: linear-gradient(135deg, #d22630, #d22630); /* Fondo con degradado en tonos rojos */
     align-items: center;
     justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index: 4;
     padding: 0px 8px;
-    box-sizing: border-box; 
-   
-
-    
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreado */
 }
+
+.menu .titulo-empresa {
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+    font-size: 24px; /* Ajusta el tamaño del texto */
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    color: white; /* Color rojo personalizado */
+    text-decoration: none; /* Elimina el subrayado */
+    letter-spacing: 2px; /* Espaciado entre caracteres */
+}
+
+.menu .titulo-empresa .company-initial {
+    font-weight: bold; /* Hace que la letra inicial sea más destacada */
+}
+
+
 .menu header {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 10px;
     color: white;
-    
 }
 
-.menu header img{
+.menu header img {
     width: 40px;
     height: 40px;
 }
 
-
-
-
-.menu .menu-lista{
+.menu .menu-lista {
     margin: 0;
     padding: 0;
-    
     display: flex;
-    gap: 14px;
-    align-items:center ;
+    gap: 24px;
+    align-items: center;
     justify-content: space-around;
-    /*background: blue;*/
     color: white;
     font-size: 18px;
     list-style: none;
-   
 }
 
-.menu .menu-lista a{
+.menu .menu-lista a {
     position: relative;
-    padding-bottom: 20px;  /*paso 1 efecto hover ventana emergente*/
-    color: white;  
+    color: white;
     text-decoration: none;
     cursor: pointer;
-    
-}
-.menu .menu-lista a:hover{
-    
-    color: rgb(16, 223, 26);  
-    
-    
+    transition: color 0.2s;
 }
 
+.menu .menu-lista a:hover {
+    color: black; /* Iconos de color negro al pasar el mouse */
+}
 
-
-.menu__list__item:hover .my__caja , .menu__list__item:hover .my__caja2 {
-    opacity: 1;
-    display: flex; /*paso 3 efecto hover ventana emergente*/
-    visibility: visible;
-    
-   
-
-    
+.usuario-logueado {
+    color: white;
+    display: flex;
+    align-items: center;
 }
 

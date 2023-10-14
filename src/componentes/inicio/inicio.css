@@ -1,2 +1,19 @@
+/* inicio.css */
 
+.container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
 
+.sub-content {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    text-align: center; /* Centra el contenido */
+}
+
+.sub-content h2 {
+    margin-bottom: 10px;
+}
