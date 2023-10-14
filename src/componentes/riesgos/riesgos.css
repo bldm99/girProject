@@ -1,0 +1,39 @@
+.riesgo-container {
+    background: white;
+}
+
+.riesgo-container .btn-flot {}
+
+.riesgo-container .formu {
+    display: flex;
+    justify-content: center;
+    background: red;
+   
+    position: relative;
+    width: 100%;
+    
+
+}
+
+.riesgo-container .formu .modal {
+    width: 100%;
+    height: 100%;
+    background: blueviolet;
+
+}
+
+.riesgo-container .riesgo-desplegable p {
+    color: #333;
+    /* Gris oscuro */
+}
+
+.riesgo-desplegable .btn-mas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.riesgo-desplegable .B-riesgo-descripcion {
+    overflow: hidden;
+
+}
