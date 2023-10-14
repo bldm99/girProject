@@ -1,0 +1,11 @@
+
+.formularior{
+    background: blue;
+    
+    
+    width: 300px;
+  
+    overflow: hidden;
+    font-size: calc(1rem * .9);
+}
+
