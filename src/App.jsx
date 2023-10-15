@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom'
 import Menu from './componentes/menu/Menu'
 import Cuerpo from './componentes/cuerpo/Cuerpo'
 import Login from './componentes/login/login'
+import Imputx from './componentes/imputx/Imputx'
 
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
         </Route>
         <Route>
           <Route path="/login" element={<><Login /></>} />
+        </Route>
+
+        <Route>
+          <Route path="/pruebas" element={<><Imputx /></>} />
         </Route>
 
       </Routes>

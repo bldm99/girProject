@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 import Descripcionr from './Descripcionr/Descripcionr';
 import Tabla from './tabalr/Tabla';
+import Despacho from './despacho/Despacho';
 import Formularior from './formularior/Formularior';
 
 const Riesgos = () => {
@@ -46,13 +47,7 @@ const Riesgos = () => {
                     Generar nuevo riesgo
                 </Button>
             </div>
-
-
-
-
-
-
-
+            
             <div className='riesgo-desplegable'>
                 <div className='B-riesgot'>
                     <h2>Riesgos</h2>
@@ -84,21 +79,21 @@ const Riesgos = () => {
             <div>
                 <Tabla />
             </div>
-            <section className="Formularior">
 
+            
 
-
-
+            <section className="F">
+            
                 {modalVisible && (
                     <div className="modal">
-                        hola
+                        <Formularior
+                        />
                     </div>
                 )}
 
 
-
-
             </section>
+            
 
         </div>
     );

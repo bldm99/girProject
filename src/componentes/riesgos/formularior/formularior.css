@@ -1,4 +1,103 @@
 .formularior {
+    font-family: 'Poppins', sans-serif;
     margin: 80px 0;
-    width: 50%;
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+    font-size: calc(1rem * .9);
+}
+
+.formularior .box-for-cont .for-title {
+    background: #c41e26;
+    color: white;
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+.formularior .box-for-cont .box-for {
+    display: grid;
+    background: white;
+    color: #666666;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+.box-for p,
+.box-for h2 {
+
+    width: 80%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.box-for .riesgo-datos {}
+
+
+
+.formularior .box-for-cont .for-save {
+    background: white;
+    width: 100%;
+    display: flex;
+    color: white;
+    border-radius: 0px 0px 7px 7px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0px;
+    flex-wrap: wrap;
+}
+.formularior .box-for-cont .for-botones {
+    width: 98%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+.formularior .box-for-cont .for-save button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+.formularior .box-for-cont .for-save button:hover {
+    background-color: #e65100;
+    color: black;
+    transform: scale(1.1);
+  }
+
+.riesgo-datos .text-titulo {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.riesgo-datos .text-titulo .opcion-riesgo {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .formularior {
+        width: 90%;
+    }
+
 }
