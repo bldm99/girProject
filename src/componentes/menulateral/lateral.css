@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
-
-
 .lateral {
   font-family: 'Poppins', sans-serif;
   position: fixed;
@@ -10,10 +7,11 @@
   left: 0;
   width: 18%;
   height: 100%;
-  background-color: #f1f1f1;
+  background-color: black;
   padding: 20px 8px;
   box-sizing: border-box;
   z-index: 2;
+  color: white;
   
 }
 
@@ -37,8 +35,8 @@
 }
 
 .lateral li:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #d22630;
+  color: black;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -55,7 +53,7 @@
 
 .lateral li a {
   text-decoration: none;
-  color: #0a0a0a;
+  color: white;
 }
 
 .lateral li a:hover {
