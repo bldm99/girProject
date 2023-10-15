@@ -32,7 +32,7 @@ const Lateral = ({cambio}) => {
                         <FontAwesomeIcon icon={faBoxOpen} className="icon" />
                         Riesgos
                     </li>
-                    <li id="clientes" onClick={() => cambio(<Clientes />)}>
+                    <li id="clientes" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faUsers} className="icon" />
                         Controles
                     </li>
