@@ -27,8 +27,8 @@ const Tabla = () => {
     const jsonData = Valores.jsonData
     const tableHeaders = [
         { id: 'id', label: 'ID' },
-        { id: 'name', label: 'Name' },
-        { id: 'age', label: 'Age' },
+        { id: 'name', label: 'Nombre' },
+        { id: 'age', label: 'Riesgo' },
     ];
 
     const ColorButton = Botones.ColorButton

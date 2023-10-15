@@ -1,0 +1,10 @@
+.TDespacho {
+    font-family: 'Poppins', sans-serif;
+    margin: 80px 0;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    font-size: calc(1rem * .9);
+
+
+}

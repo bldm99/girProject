@@ -15,10 +15,18 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+<<<<<<< HEAD
     "@mui/icons-material": "^5.14.13",
+=======
+>>>>>>> 9b8a42ff9a1171cd81bf0b0f4b1787c8af6c951a
     "@mui/material": "^5.14.13",
+    "@mui/icons-material": "^5.14.13",
     "@mui/styled-engine-sc": "^6.0.0-alpha.1",
     "@mui/system": "^5.14.13",
+<<<<<<< HEAD
+=======
+    "react": "^18.2.0",
+>>>>>>> 9b8a42ff9a1171cd81bf0b0f4b1787c8af6c951a
     "react-dom": "^18.2.0",
     "react-heatmap-grid": "^0.9.0",
     "react-icons": "^4.8.0",
