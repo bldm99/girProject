@@ -7,7 +7,7 @@ import './lateral.css';
 //Componentes importados
 import Inicio from '../inicio/Inicio';
 import Riesgos from '../riesgos/Riesgos';
-import Heatmap from '../headmap/Heatmap';
+
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
