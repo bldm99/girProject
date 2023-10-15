@@ -1,0 +1,51 @@
+.tablar-cont {
+    display: flex;
+    justify-content: center;
+}
+
+
+.tablar-cont .btn-controllers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 97%;
+    margin: 4px 0px 4px 0px;
+}
+
+
+.tablar-cont .btn-search {}
+
+.tablar-cont .btn-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* CSS */
+.fixed-headers  {
+    width: 500px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header-background {
+    background-color: #0d1029; /* Cambia esto al color que desees */
+    color: white;
+  }
+
+  .fixed-headers th {
+    color: white;
+}
+
+
+
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+    .tablar-cont .btn-search {
+        width: 100%;
+    }
+
+}

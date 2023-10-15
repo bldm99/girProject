@@ -3,7 +3,10 @@
 import { Link } from 'react-router-dom';
 
 import './lateral.css';
+
+//Componentes importados
 import Inicio from '../inicio/Inicio';
+import Riesgos from '../riesgos/Riesgos';
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +29,7 @@ const Lateral = ({cambio}) => {
                         <FontAwesomeIcon icon={faClipboardList} className="icon" />
                         Procesos
                     </li>
-                    <li id="productos" onClick={() => cambio(<Productos />)}>
+                    <li id="productos" onClick={() => cambio(<Riesgos />)}>
                         <FontAwesomeIcon icon={faBoxOpen} className="icon" />
                         Riesgos
                     </li>

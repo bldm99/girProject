@@ -1,0 +1,32 @@
+
+.descripcionr{
+    /*background: yellow;*/
+}
+
+.descripcionr .cont-card-des{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px 8px 0px;
+
+    
+}
+.descripcionr .cont-card-des .desc-center{
+    
+    width: 95%;
+    display: grid;
+    /*grid-template-columns: repeat(auto-fit,minmax(350px ,1fr)); */
+    grid-template-columns: repeat(auto-fit,minmax(min(200px , 100%) ,1fr)); 
+    gap: 15px;
+    box-sizing: border-box; 
+}
+
+.descripcionr .cont-card-des .desc-center .card-des{
+    background: violet;
+    padding: 8px;
+   
+    
+    
+    
+}
