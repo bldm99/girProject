@@ -25,11 +25,8 @@ const Lateral = ({cambio}) => {
                         <FontAwesomeIcon icon={faHome} className="icon" />
                         Inicio
                     </li>
-<<<<<<< HEAD
                     <li id="proceso" onClick={() => cambio(<Proceso />)}>
-=======
-                    <li id="procesos" onClick={() => cambio(<Pedidos />)}>
->>>>>>> 3026887e9349538f5fe064f394355428cd87cd5f
+
                         <FontAwesomeIcon icon={faClipboardList} className="icon" />
                         Procesos
                     </li>
