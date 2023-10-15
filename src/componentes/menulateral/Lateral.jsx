@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+//import React from 'react';
+//import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './lateral.css';
@@ -11,6 +11,7 @@ import Riesgos from '../riesgos/Riesgos';
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt, faChartBar, faBullhorn, faTags, faShoppingCart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import Proceso from '../Procesos/Proceso';
 
 const Lateral = ({cambio}) => {
 
@@ -24,7 +25,8 @@ const Lateral = ({cambio}) => {
                         <FontAwesomeIcon icon={faHome} className="icon" />
                         Inicio
                     </li>
-                    <li id="procesos" onClick={() => cambio(<Pedidos />)}>
+                    <li id="proceso" onClick={() => cambio(<Proceso />)}>
+
                         <FontAwesomeIcon icon={faClipboardList} className="icon" />
                         Procesos
                     </li>
