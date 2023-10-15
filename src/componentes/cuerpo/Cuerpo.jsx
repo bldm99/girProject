@@ -14,7 +14,7 @@ const Cuerpo = () => {
     const [componente, setComponete] = useState(<Inicio />);
 
     //Componete lateral , muestra un barra lateral
-    const [lateral, seLateral] = useState(() => Lateral);
+    const [lateral, setLateral] = useState(() => Lateral);
 
 
     var mysty = {
