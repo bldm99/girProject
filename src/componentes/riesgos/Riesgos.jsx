@@ -47,7 +47,7 @@ const Riesgos = () => {
                 </Button>
             </div>
 
-            
+
 
 
 
@@ -84,14 +84,20 @@ const Riesgos = () => {
             <div>
                 <Tabla />
             </div>
-            <section className="formu">
+            <section className="Formularior">
+
+
+
+
                 {modalVisible && (
                     <div className="modal">
                         hola
                     </div>
                 )}
 
-                
+
+
+
             </section>
 
         </div>

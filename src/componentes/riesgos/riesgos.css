@@ -4,19 +4,26 @@
 
 .riesgo-container .btn-flot {}
 
-.riesgo-container .formu {
+.riesgo-container .Formularior {
     display: flex;
     justify-content: center;
     background: red;
-   
     position: relative;
     width: 100%;
     
 
 }
 
-.riesgo-container .formu .modal {
-    width: 100%;
+.riesgo-container .formu .p {
+    
+    background: rgb(141, 95, 95);
+    width: 50%;
+    
+
+}
+
+.riesgo-container .Formularior .modal {
+    width: 50%;
     height: 100%;
     background: blueviolet;
 

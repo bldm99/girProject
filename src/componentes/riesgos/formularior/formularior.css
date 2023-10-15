@@ -1,11 +1,4 @@
-
-.formularior{
-    background: blue;
-    
-    
-    width: 300px;
-  
-    overflow: hidden;
-    font-size: calc(1rem * .9);
+.formularior {
+    margin: 80px 0;
+    width: 50%;
 }
-
