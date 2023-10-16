@@ -25,7 +25,7 @@ const Riesgos = () => {
     };
 
     const handleOutsideClick = (event) => {
-        if (event.target.classList.contains("modal")) {
+        if (event.target.classList.contains("modalBldm")) {
             setModalVisible(false);
         }
     };
@@ -85,7 +85,7 @@ const Riesgos = () => {
             <section className="F">
             
                 {modalVisible && (
-                    <div className="modal">
+                    <div className="modalBldm">
                         <Formularior
                         />
                     </div>

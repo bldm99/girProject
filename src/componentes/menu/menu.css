@@ -1,6 +1,6 @@
 .menu {
     display: flex;
-    background: linear-gradient(135deg, #d22630, #d22630); /* Fondo con degradado en tonos rojos */
+    /*background: linear-gradient(135deg, #d22630, #d22630); /* Fondo con degradado en tonos rojos */
     align-items: center;
     justify-content: space-between;
     position: fixed;
@@ -9,6 +9,7 @@
     padding: 0px 8px;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreado */
+    background-color: #000045;
 }
 
 .menu .titulo-empresa {

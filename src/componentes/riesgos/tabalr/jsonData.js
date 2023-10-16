@@ -1,13 +1,13 @@
 
 
 export const jsonData = [
-  { "id": 1, "name": "John", "age": 30 },
-  { "id": 2, "name": "Alice", "age": 25 },
-  { "id": 3, "name": "Bob", "age": 35 },
-  { "id": 4, "name": "John", "age": 30 },
-  { "id": 5, "name": "Alice", "age": 25 },
-  { "id": 6, "name": "Bob", "age": 35 },
-  { "id": 7, "name": "John", "age": 30 },
-  { "id": 8, "name": "Alice", "age": 25 },
-  { "id": 9, "name": "Bob", "age": 35 }
+  { "id": 1, "name": "Riesgo1", "age": "Alto" },
+  { "id": 2, "name": "Riesgo2", "age": "Bajo" },
+  { "id": 3, "name": "Riesgo3", "age": "Alto" },
+  { "id": 4, "name": "Riesgo4", "age": "Medio" },
+  { "id": 5, "name": "Riesgo5", "age": "Bajo" },
+  { "id": 6, "name": "Riesgo6", "age": "Alto" },
+  { "id": 7, "name": "Riesgo7", "age": "Bajo" },
+  { "id": 8, "name": "Riesgo8", "age": "Alto" },
+  { "id": 9, "name": "Riesgo9", "age": "Medio" }
 ]

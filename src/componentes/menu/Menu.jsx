@@ -4,6 +4,7 @@ import { FaUser, FaQuestionCircle, FaBell, FaCog } from 'react-icons/fa';
 import './menu.css';
 
 import logomenu from '../../assets/react.svg';
+import logofinal from '../../assets/logfinal.png';
 
 const Menu = () => {
     // Supongamos que tienes el nombre de usuario en una variable, por ejemplo:
@@ -14,10 +15,11 @@ const Menu = () => {
             
                 
                 <header>
-                    <img src={logomenu} alt="" />
+                    <img src={logofinal} alt="" />
                     <h1 className="titulo-empresa">
                         <span className="company-initial">G</span>IR
                     </h1>
+                    <h3> - Gestión Integrada de Riesgos</h3>
                 </header>
           
 

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/**{
+/*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -161,9 +161,9 @@ body{
 }
 
 .toggle{
-    background-color: #d22630;
+    background-color: #000045;
     height: 100%;
-    background: linear-gradient(to right, #d22630, #d22630);
+    background: linear-gradient(to right, #000045, #000045);
     color: #fff;
     position: relative;
     left: -100%;
@@ -207,4 +207,8 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+.toggle-container .toggle .toggle-panel  button{
+    background: #d22630;
 }*/
