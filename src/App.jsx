@@ -11,6 +11,7 @@ import Menu from './componentes/menu/Menu'
 import Cuerpo from './componentes/cuerpo/Cuerpo'
 import Login from './componentes/login/login'
 import Imputx from './componentes/imputx/Imputx'
+import Calor from './componentes/calor/Calor'
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         </Route>
 
         <Route>
-          <Route path="/pruebas" element={<><Imputx /></>} />
+          <Route path="/pruebas" element={<><Calor /></>} />
         </Route>
 
       </Routes>

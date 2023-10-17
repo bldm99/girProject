@@ -2,8 +2,10 @@
 
 .container {
     display: flex;
-    flex-direction: column; /* Coloca los elementos uno debajo del otro */
-    align-items: center; /* Centra los elementos horizontalmente */
+    flex-direction: column;
+    /* Coloca los elementos uno debajo del otro */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
 }
 
 .sub-content {
@@ -11,9 +13,19 @@
     padding: 10px;
     margin: 10px;
     width: 100%;
-    text-align: center; /* Centra el contenido */
+    text-align: center;
+    /* Centra el contenido */
 }
 
 .sub-content h2 {
     margin-bottom: 10px;
+}
+
+.cont-calor {
+    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 4px;
+    /* Espacio entre las celdas */
 }

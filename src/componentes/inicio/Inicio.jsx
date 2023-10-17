@@ -1,19 +1,61 @@
 import React from 'react';
 import './inicio.css';
 
+import Calor from '../calor/Calor';
+import * as Test from '../../Test'
+
 const Inicio = () => {
+
+    const verde ="#60bf52"
+    const amarillo ="#FFC043"
+    const naranja ="#F27649"
+    const rojo ="#F25252"
+
+    const Bs_izquierda ='20px 5px 5px 5px'
+    const Bs_derecha ='5px 20px 5px 5px'
+    const Bi_izquierda ='5px 5px 5px 20px'
+    const Bi_derecha ='5px 5px 20px 5px'
+    
+
+
+    const t = Test.Dato 
+
+
+    console.log(t)
     return (
         <div className="container">
-            <center>
-                <h2>Título Principal</h2>
-            </center>
-            <div className="sub-content">
-                <h2>Subtítulo 1</h2>
-                <p>Este es el contenido del subtítulo 1.</p>
-            </div>
-            <div className="sub-content">
-                <h2>Subtítulo 2</h2>
-                <p>Este es el contenido del subtítulo 2.</p>
+            
+            <div className='cont-calor'>
+                <Calor ycolor={amarillo} yborde={Bs_izquierda}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={naranja}/>
+                <Calor ycolor={rojo}/>
+                <Calor ycolor={rojo} yborde={Bs_derecha}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={naranja}/>
+                <Calor ycolor={rojo}/>
+                <Calor ycolor={rojo}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={naranja}/>
+                <Calor ycolor={rojo}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={naranja}/>
+                <Calor ycolor={rojo}/>
+                <Calor ycolor={verde} yborde={Bi_izquierda}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={verde}/>
+                <Calor ycolor={amarillo}/>
+                <Calor ycolor={naranja} yborde={Bi_derecha}/>
+                
+                
+               
+                
+
             </div>
         </div>
     );

@@ -1,0 +1,20 @@
+
+.calor{
+    background: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+.calor .circle-c{
+    background: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
