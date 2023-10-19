@@ -11,7 +11,9 @@ import Riesgos from '../riesgos/Riesgos';
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt, faChartBar, faBullhorn, faTags, faShoppingCart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt,
+     faChartBar, faBullhorn, faTags, faShoppingCart, faCog, 
+     faSignOutAlt  } from '@fortawesome/free-solid-svg-icons';
 import Proceso from '../Procesos/Proceso';
 
 const Lateral = ({cambio}) => {
@@ -22,9 +24,14 @@ const Lateral = ({cambio}) => {
             <div className='sub-lateral'>
 
                 <ul>
-                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                <li id="inicio" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faHome} className="icon" />
                         Inicio
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon="fa-solid fa-gauge" style={{color: "#e0e2e5",}} />
+                        Dashboard
                     </li>
                     <li id="proceso" onClick={() => cambio(<Proceso />)}>
 
@@ -35,9 +42,34 @@ const Lateral = ({cambio}) => {
                         <FontAwesomeIcon icon={faBoxOpen} className="icon" />
                         Riesgos
                     </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Causas y Consecuencias
+                    </li>
+                    
                     <li id="clientes" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faUsers} className="icon" />
                         Controles
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Eventos
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Plan de Accion
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Reportes
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Indicadores
+                    </li>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        Evaluaciones
                     </li>
                     <li id="contenido" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faFileAlt} className="icon" />

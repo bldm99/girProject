@@ -11,8 +11,32 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Imputx from '../../imputx/Imputx';
 //importando fuciones para para dar colr aun boton
 import * as Botones from '../../../colors/Btncolor'
+import * as Datariesgo from '../../../utils/Datariesgo'
+
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Formularior = () => {
+
+    const postProductos = Datariesgo.postRiesgos
+
+    const [nombre, setNombre] = useState("")
+    const [impacto_desc, setImpacto_desc] = useState("")
+    const [impacto_num, setImpacto_num] = useState("")
+    const [impacto_porc, setImpacto_porc] = useState("")
+
+
+    const registrarx = async (event) => {
+        event.preventDefault()
+        try {
+          await postProductos( "6530d9efa6497abacc5a450e" ,nombre)
+          toast.success('¡Nuevo producto registrado de manera exitosa!');
+          console.log("Producto registrado")
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    
 
     const ColorButton = Botones.ColorButton
     const [animate, setAnimate] = useState(false);
@@ -27,6 +51,7 @@ const Formularior = () => {
     return (
 
         <div className='formularior'>
+            <ToastContainer/>
             <div className='box-for-cont'>
                 <div className='for-title'>
                     Generar nuevo riesgo
@@ -49,10 +74,10 @@ const Formularior = () => {
                             <Imputx
                                 xlabel={"Nombre del riesgo:"}
                                 xoutline={"#e65100"}
-                                valor={nombreriesgo}
+                                valor={nombre}
                                 xplaceholder={"Riesgo de ..."}
                                 required
-                                actualizarvalor={setNombreriesgo}
+                                actualizarvalor={setNombre}
                                 tipo={'input'}
                             />
 
@@ -134,7 +159,7 @@ const Formularior = () => {
 
                 <div className='for-save'>
                     <div className='for-botones'>
-                        <button >Registar</button>
+                        <button onClick={registrarx} >Registar</button>
                         <button >Cancelar</button>
                     </div>
                 </div>
