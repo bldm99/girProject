@@ -6,6 +6,7 @@
     /* Coloca los elementos uno debajo del otro */
     align-items: center;
     /* Centra los elementos horizontalmente */
+
 }
 
 .sub-content {
@@ -23,9 +24,10 @@
 
 .cont-calor {
     
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 4px;
+    margin-top: 20px;
     /* Espacio entre las celdas */
 }

@@ -3,8 +3,11 @@ import './inicio.css';
 
 import Calor from '../calor/Calor';
 import * as Test from '../../Test'
+import * as Datariesgo from '../../utils/Datariesgo'
 
 const Inicio = () => {
+
+    const postRiesgos = Datariesgo.postRiesgos
 
     const verde ="#60bf52"
     const amarillo ="#FFC043"
