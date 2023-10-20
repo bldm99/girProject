@@ -21,15 +21,28 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
+import * as Datariesgo from '../../../utils/Datariesgo'
 
-const Tabla = () => {
+const Tabla = (props) => {
+
+    const {objriesgos} = props
 
     const jsonData = Valores.jsonData
     const tableHeaders = [
-        { id: 'id', label: 'ID' },
-        { id: 'name', label: 'Nombre' },
-        { id: 'age', label: 'Riesgo' },
+        { id: 'nombre', label: 'Nombre' },
+        { id: 'impacto_desc', label: 'Consecuencia' },
+        { id: 'impacto_porc', label: 'C. %' },
+        { id: 'probabilidad_desc', label: 'Probabilidad' },
+        { id: 'probabilidad_porc', label: 'P. %' },
+        { id: 'riesgo', label: 'Riesgo' },
+        { id: 'proceso_asignado', label: 'Proceso' }
     ];
+
+    useEffect(() => {
+        
+    }, []);
+
+    
 
     const ColorButton = Botones.ColorButton
 
@@ -119,13 +132,14 @@ const Tabla = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {jsonData.map((row) => (
+                            {objriesgos.map((row) => (
                                 <TableRow key={row.id}>
                                     {tableHeaders.map((header) => (
                                         <TableCell key={header.id}>{row[header.id]}</TableCell>
                                     ))}
                                 </TableRow>
                             ))}
+                           
                         </TableBody>
                     </Table>
                 </TableContainer>

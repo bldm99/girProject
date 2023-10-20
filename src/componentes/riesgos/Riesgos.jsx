@@ -8,7 +8,13 @@ import Tabla from './tabalr/Tabla';
 import Despacho from './despacho/Despacho';
 import Formularior from './formularior/Formularior';
 
+import * as Datariesgo from '../../utils/Datariesgo'
+
 const Riesgos = () => {
+
+
+    const buscarRiesgos = Datariesgo.buscarRiesgos
+    const [datariesgos, setDatariesgos] = useState([])
 
     //Mostrar y ocultar descripcion
     const [mostrarDesc, setMostarDesc] = useState(false)
@@ -32,6 +38,15 @@ const Riesgos = () => {
 
     useEffect(() => {
         document.addEventListener("click", handleOutsideClick);
+
+        const obtenerdata = async () => {
+            try {
+                const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        obtenerdata()
         return () => {
             document.removeEventListener("click", handleOutsideClick);
         };
@@ -47,7 +62,7 @@ const Riesgos = () => {
                     Generar nuevo riesgo
                 </Button>
             </div>
-            
+
             <div className='riesgo-desplegable'>
                 <div className='B-riesgot'>
                     <h2>Riesgos</h2>
@@ -77,23 +92,23 @@ const Riesgos = () => {
             </div>
 
             <div>
-                <Tabla />
+                <Tabla objriesgos= {datariesgos} />
             </div>
 
-            
+
 
             <section className="F">
-            
+
                 {modalVisible && (
                     <div className="modalBldm">
-                        <Formularior
+                        <Formularior objrSetriesgos= {setDatariesgos}
                         />
                     </div>
                 )}
 
 
             </section>
-            
+
 
         </div>
     );

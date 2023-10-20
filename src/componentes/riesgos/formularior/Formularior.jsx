@@ -16,27 +16,105 @@ import * as Datariesgo from '../../../utils/Datariesgo'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Formularior = () => {
+const Formularior = (props) => {
 
-    const postProductos = Datariesgo.postRiesgos
+    const {objrSetriesgos} = props
+
+    const postRiesgos = Datariesgo.postRiesgos
+    const buscarRiesgos = Datariesgo.buscarRiesgos
+  
 
     const [nombre, setNombre] = useState("")
     const [impacto_desc, setImpacto_desc] = useState("")
-    const [impacto_num, setImpacto_num] = useState("")
-    const [impacto_porc, setImpacto_porc] = useState("")
+    //const [impacto_num, setImpacto_num] = useState("")
+    //const [impacto_porc, setImpacto_porc] = useState("")
+    const [probabilidad_desc, setProbabilidad_desc] = useState("")
+    //const [probabilidad_num, setProbabilidad_num] = useState("")
+    //const [probabilidad_porc, setProbabilidad_porc] = useState("")
+
+
 
 
     const registrarx = async (event) => {
+
+        let impacto_num = 0;
+        let impacto_porc = ""
+        let probabilidad_num = 0
+        let probabilidad_porc = ""
+
+        if (impacto_desc === "Minima") {
+            impacto_num = 1;
+            impacto_porc = "20%";
+        } else if (impacto_desc === "Menor") {
+            impacto_num = 2;
+            impacto_porc = "40%";
+        } else if (impacto_desc === "Moderada") {
+            impacto_num = 4;
+            impacto_porc = "60%";
+        } else if (impacto_desc === "Mayor") {
+            impacto_num = 8;
+            impacto_porc = "80%";
+        } else {
+            impacto_num = 16;
+            impacto_porc = "100%";
+        }
+
+        if (probabilidad_desc === "Muy Baja") {
+            probabilidad_num = 1;
+            probabilidad_porc = "20%"
+        } else if (probabilidad_desc === "Baja") {
+            probabilidad_num = 2;
+            probabilidad_porc = "40%"
+        } else if (probabilidad_desc === "Media") {
+            probabilidad_num = 3;
+            probabilidad_porc = "60%"
+        } else if (probabilidad_desc === "Alta") {
+            probabilidad_num = 4;
+            probabilidad_porc = "80%"
+        } else {
+            probabilidad_num = 5;
+            probabilidad_porc = "100%"
+        }
+
+        const calificacion = impacto_num * probabilidad_num  
+
+        var riesgo = ""
+
+        if([6, 11, 16, 17, 21, 22, 23].includes(calificacion)){
+            riesgo = "Bajo"
+        }else if ([1,2,7,12,13,18,24].includes(calificacion)) {
+            riesgo = "Medio"
+        } else if ([3,8,14,19,25].includes(calificacion)) {
+            riesgo = "Alto"
+        } else {
+            riesgo = "Extremo"
+        }
+
+
         event.preventDefault()
         try {
-          await postProductos( "6530d9efa6497abacc5a450e" ,nombre)
-          toast.success('¡Nuevo producto registrado de manera exitosa!');
-          console.log("Producto registrado")
+            await postRiesgos(
+                "6531d08612ec096c58717b97",
+                nombre,
+                impacto_desc,
+                impacto_num.toString(),
+                impacto_porc,
+                probabilidad_desc,
+                probabilidad_num.toString(),
+                probabilidad_porc,
+                calificacion.toString(),
+                riesgo,
+                "En espera"
+
+            )
+            await buscarRiesgos("6531d08612ec096c58717b97", objrSetriesgos)
+            toast.success('¡Nuevo producto registrado de manera exitosa!');
+            console.log("Producto registrado")
         } catch (error) {
-          console.log(error)
+            console.log(error)
         }
-      }
-    
+    }
+
 
     const ColorButton = Botones.ColorButton
     const [animate, setAnimate] = useState(false);
@@ -46,12 +124,15 @@ const Formularior = () => {
 
     const [nombreriesgo, setNombreriesgo] = useState("")
 
+    console.log(impacto_desc)
+    console.log(probabilidad_desc)
+
 
 
     return (
 
         <div className='formularior'>
-            <ToastContainer/>
+            <ToastContainer />
             <div className='box-for-cont'>
                 <div className='for-title'>
                     Generar nuevo riesgo
@@ -84,12 +165,13 @@ const Formularior = () => {
                         </div>
 
                         <div className='text-titulo'>
-                            <label htmlFor="">Posible impacto de Riesgo</label>
+                            <label htmlFor="">Posible Consecuencia de Riesgo</label>
                             <div className='opcion-riesgo'>
-                                <ColorButton variant="contained" col="#e65100" hov="#76ff03">R. Bajo</ColorButton>
-                                <ColorButton variant="contained" col="#e65100" hov="#ffee33">R. Medio</ColorButton>
-                                <ColorButton variant="contained" col="#e65100" hov="#ffa733">R Alto</ColorButton>
-                                <ColorButton variant="contained" col="#e65100" hov="#ff3d00">R Total</ColorButton>
+                                <ColorButton onClick={() => { setImpacto_desc("Minima") }} variant="contained" col="#e65100" hov="#76ff03">Minina</ColorButton>
+                                <ColorButton onClick={() => { setImpacto_desc("Menor") }} variant="contained" col="#e65100" hov="#ffee33">Menor</ColorButton>
+                                <ColorButton onClick={() => { setImpacto_desc("Moderada") }} variant="contained" col="#e65100" hov="#ffa733">Moderada</ColorButton>
+                                <ColorButton onClick={() => { setImpacto_desc("Mayor") }} variant="contained" col="#e65100" hov="#ff3d00">Mayor</ColorButton>
+                                <ColorButton onClick={() => { setImpacto_desc("Maxima") }} variant="contained" col="#e65100" hov="#ff3d00">Maxima</ColorButton>
                             </div>
                         </div>
 
@@ -106,34 +188,39 @@ const Formularior = () => {
                                 >
 
                                     <FormControlLabel
-                                        value="Improbable"
+                                        value="Muy Baja"
                                         control={<Radio />}
-                                        label="Improbable"
+                                        label="Muy Baja"
                                         labelPlacement="start"
+                                        onClick={() => { setProbabilidad_desc("Muy Baja") }}
                                     />
                                     <FormControlLabel
-                                        value="Posible"
+                                        value="Baja"
                                         control={<Radio />}
-                                        label="Posible"
+                                        label="Baja"
                                         labelPlacement="start"
+                                        onClick={() => { setProbabilidad_desc("Baja") }}
                                     />
                                     <FormControlLabel
-                                        value="Ocasional"
+                                        value="Media"
                                         control={<Radio />}
-                                        label="Ocasional"
+                                        label="Media"
                                         labelPlacement="start"
+                                        onClick={() => { setProbabilidad_desc("Media") }}
                                     />
                                     <FormControlLabel
-                                        value="Probable"
+                                        value="Alta"
                                         control={<Radio />}
-                                        label="Probable"
+                                        label="Alta"
                                         labelPlacement="start"
+                                        onClick={() => { setProbabilidad_desc("Alta") }}
                                     />
                                     <FormControlLabel
-                                        value="Frecuente"
+                                        value="Muy Alta"
                                         control={<Radio />}
-                                        label="Frecuente"
+                                        label="Muy Alta"
                                         labelPlacement="start"
+                                        onClick={() => { setProbabilidad_desc("Muy Alta") }}
                                     />
 
 
