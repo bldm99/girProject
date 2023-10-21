@@ -10,11 +10,21 @@ import Formularior from './formularior/Formularior';
 
 import * as Datariesgo from '../../utils/Datariesgo'
 
+//Toast aviso emergente
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Riesgos = () => {
 
 
     const buscarRiesgos = Datariesgo.buscarRiesgos
+    const postRiesgos = Datariesgo.postRiesgos
+
     const [datariesgos, setDatariesgos] = useState([])
+    // Ordena los datos en objriesgos por la fecha en orden descendente
+    const sortedData = datariesgos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+
 
     //Mostrar y ocultar descripcion
     const [mostrarDesc, setMostarDesc] = useState(false)
@@ -42,6 +52,7 @@ const Riesgos = () => {
         const obtenerdata = async () => {
             try {
                 const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+                
             } catch (error) {
                 console.log(error)
             }
@@ -52,11 +63,35 @@ const Riesgos = () => {
         };
     }, []);
 
-    console.log(modalVisible)
+    //efectuar registro de nuevo riesgo
+    const registroRiesgo = async (dato) => {
+        try {
+            await postRiesgos(
+                dato.idusuario,
+                dato.nombre,
+                dato.impacto_desc,
+                dato.impacto_num,
+                dato.impacto_porc,
+                dato.probabilidad_desc,
+                dato.probabilidad_num,
+                dato.probabilidad_porc,
+                dato.calificacion,
+                dato.riesgo,
+                dato.proceso_asignado
+            )
+            //Una vez registrado se cierra el modal
+            setModalVisible(false);
+            toast.success('¡Riego registrado de manera exitosa!');
+            //Perimite refresar la tabla con los nuevos datos registrados
+            await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div className='riesgo-container'>
-
+            <ToastContainer />
             <div className='btn-flot'>
                 <Button variant="outlined" onClick={() => { registrar() }}>
                     Generar nuevo riesgo
@@ -92,7 +127,7 @@ const Riesgos = () => {
             </div>
 
             <div>
-                <Tabla objriesgos= {datariesgos} />
+                <Tabla objriesgos={datariesgos} />
             </div>
 
 
@@ -101,7 +136,10 @@ const Riesgos = () => {
 
                 {modalVisible && (
                     <div className="modalBldm">
-                        <Formularior objrSetriesgos= {setDatariesgos}
+                        <Formularior
+                            objrSetriesgos={setDatariesgos}
+                            registroRiesgo={registroRiesgo}
+                            closeBmodal={setModalVisible}
                         />
                     </div>
                 )}

@@ -25,7 +25,10 @@ import * as Datariesgo from '../../../utils/Datariesgo'
 
 const Tabla = (props) => {
 
-    const {objriesgos} = props
+    const { objriesgos } = props
+
+    // Ordena los datos en objriesgos por la fecha en orden descendente
+    const sortedData = objriesgos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
     const jsonData = Valores.jsonData
     const tableHeaders = [
@@ -39,10 +42,10 @@ const Tabla = (props) => {
     ];
 
     useEffect(() => {
-        
+
     }, []);
 
-    
+
 
     const ColorButton = Botones.ColorButton
 
@@ -132,14 +135,15 @@ const Tabla = (props) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {objriesgos.map((row) => (
+                            {sortedData.map((row) => (
                                 <TableRow key={row.id}>
                                     {tableHeaders.map((header) => (
-                                        <TableCell key={header.id}>{row[header.id]}</TableCell>
+                                        <TableCell key={header.id}>
+                                            {header.id === 'fecha' ? new Date(row.fecha).toLocaleDateString() : row[header.id]}
+                                        </TableCell>
                                     ))}
                                 </TableRow>
                             ))}
-                           
                         </TableBody>
                     </Table>
                 </TableContainer>

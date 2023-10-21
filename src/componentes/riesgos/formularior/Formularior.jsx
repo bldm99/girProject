@@ -13,16 +13,18 @@ import Imputx from '../../imputx/Imputx';
 import * as Botones from '../../../colors/Btncolor'
 import * as Datariesgo from '../../../utils/Datariesgo'
 
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const Formularior = (props) => {
 
-    const {objrSetriesgos} = props
+
+
+
+    const { objrSetriesgos, registroRiesgo, closeBmodal } = props
 
     const postRiesgos = Datariesgo.postRiesgos
     const buscarRiesgos = Datariesgo.buscarRiesgos
-  
+
 
     const [nombre, setNombre] = useState("")
     const [impacto_desc, setImpacto_desc] = useState("")
@@ -35,7 +37,7 @@ const Formularior = (props) => {
 
 
 
-    const registrarx = async (event) => {
+    const registrarx = async () => {
 
         let impacto_num = 0;
         let impacto_porc = ""
@@ -76,22 +78,36 @@ const Formularior = (props) => {
             probabilidad_porc = "100%"
         }
 
-        const calificacion = impacto_num * probabilidad_num  
+        const calificacion = impacto_num * probabilidad_num
 
         var riesgo = ""
 
-        if([6, 11, 16, 17, 21, 22, 23].includes(calificacion)){
+        if ([6, 11, 16, 17, 21, 22, 23].includes(calificacion)) {
             riesgo = "Bajo"
-        }else if ([1,2,7,12,13,18,24].includes(calificacion)) {
+        } else if ([1, 2, 7, 12, 13, 18, 24].includes(calificacion)) {
             riesgo = "Medio"
-        } else if ([3,8,14,19,25].includes(calificacion)) {
+        } else if ([3, 8, 14, 19, 25].includes(calificacion)) {
             riesgo = "Alto"
         } else {
             riesgo = "Extremo"
         }
 
+        let valoresForm = {
+            idusuario: "6531d08612ec096c58717b97",
+            nombre:nombre,
+            impacto_desc:impacto_desc,
+            impacto_num:impacto_num.toString(),
+            impacto_porc,
+            probabilidad_desc:probabilidad_desc,
+            probabilidad_num:probabilidad_num.toString(),
+            probabilidad_porc,
+            calificacion:calificacion.toString(),
+            riesgo,
+            proceso_asignado:"En espera"
+        }
+        registroRiesgo(valoresForm)
 
-        event.preventDefault()
+        /*event.preventDefault()
         try {
             await postRiesgos(
                 "6531d08612ec096c58717b97",
@@ -108,12 +124,16 @@ const Formularior = (props) => {
 
             )
             await buscarRiesgos("6531d08612ec096c58717b97", objrSetriesgos)
-            toast.success('¡Nuevo producto registrado de manera exitosa!');
+
+            toast.success('¡Riesgo registrado de manera exitosa!');
+
             console.log("Producto registrado")
         } catch (error) {
             console.log(error)
-        }
+        }*/
     }
+
+ 
 
 
     const ColorButton = Botones.ColorButton
@@ -129,10 +149,12 @@ const Formularior = (props) => {
 
 
 
+
+
     return (
 
         <div className='formularior'>
-            <ToastContainer />
+            
             <div className='box-for-cont'>
                 <div className='for-title'>
                     Generar nuevo riesgo
@@ -247,7 +269,7 @@ const Formularior = (props) => {
                 <div className='for-save'>
                     <div className='for-botones'>
                         <button onClick={registrarx} >Registar</button>
-                        <button >Cancelar</button>
+                        <button onClick={() => {closeBmodal(false)}} >Cancelar</button>
                     </div>
                 </div>
 

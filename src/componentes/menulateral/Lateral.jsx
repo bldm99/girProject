@@ -9,11 +9,16 @@ import Inicio from '../inicio/Inicio';
 import Riesgos from '../riesgos/Riesgos';
 
 
+
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt,
      faChartBar, faBullhorn, faTags, faShoppingCart, faCog, 
-     faSignOutAlt  } from '@fortawesome/free-solid-svg-icons';
+     faSignOutAlt  , faGripVertical , faTriangleExclamation,
+     faHouseChimneyCrack,faToolbox,faCalendar,faScrewdriverWrench,
+     faListCheck,faLocationCrosshairs,faFilePen,faFire} from '@fortawesome/free-solid-svg-icons';
+
+
 import Proceso from '../Procesos/Proceso';
 
 const Lateral = ({cambio}) => {
@@ -29,8 +34,7 @@ const Lateral = ({cambio}) => {
                         Inicio
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
-                        <FontAwesomeIcon icon="fa-solid fa-gauge" style={{color: "#e0e2e5",}} />
+                        <FontAwesomeIcon icon={faGripVertical} className="icon" />
                         Dashboard
                     </li>
                     <li id="proceso" onClick={() => cambio(<Proceso />)}>
@@ -39,40 +43,41 @@ const Lateral = ({cambio}) => {
                         Procesos
                     </li>
                     <li id="productos" onClick={() => cambio(<Riesgos />)}>
-                        <FontAwesomeIcon icon={faBoxOpen} className="icon" />
+                        <FontAwesomeIcon icon={faTriangleExclamation} className="icon" />
+                      
                         Riesgos
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faHouseChimneyCrack} className="icon" />
                         Causas y Consecuencias
                     </li>
                     
                     <li id="clientes" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faUsers} className="icon" />
+                        <FontAwesomeIcon icon={faToolbox} className="icon" />
                         Controles
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faCalendar} className="icon" />
                         Eventos
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
                         Plan de Accion
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faListCheck} className="icon" />
                         Reportes
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faLocationCrosshairs} className="icon" />
                         Indicadores
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <FontAwesomeIcon icon={faFilePen} className="icon" />
                         Evaluaciones
                     </li>
                     <li id="contenido" onClick={() => cambio(<Inicio />)}>
-                        <FontAwesomeIcon icon={faFileAlt} className="icon" />
+                        <FontAwesomeIcon icon={faFire} className="icon" />
                         Mapa de Calor
                     </li>
                     <li id="configuracion" onClick={() => cambio(<Testcliente />)}>
