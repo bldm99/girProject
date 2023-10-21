@@ -1,5 +1,5 @@
-//import React from 'react';
-//import { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './lateral.css';
@@ -7,21 +7,45 @@ import './lateral.css';
 //Componentes importados
 import Inicio from '../inicio/Inicio';
 import Riesgos from '../riesgos/Riesgos';
+import Proceso from '../Procesos/Proceso';
+import Dashboard from '../dashboard/Dashboard';
 
 
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt,
-     faChartBar, faBullhorn, faTags, faShoppingCart, faCog, 
-     faSignOutAlt  , faGripVertical , faTriangleExclamation,
-     faHouseChimneyCrack,faToolbox,faCalendar,faScrewdriverWrench,
-     faListCheck,faLocationCrosshairs,faFilePen,faFire} from '@fortawesome/free-solid-svg-icons';
+import {
+    faHome, faClipboardList, faBoxOpen, faUsers, faFileAlt,
+    faChartBar, faBullhorn, faTags, faShoppingCart, faCog,
+    faSignOutAlt, faGripVertical, faTriangleExclamation,
+    faHouseChimneyCrack, faToolbox, faCalendar, faScrewdriverWrench,
+    faListCheck, faLocationCrosshairs, faFilePen, faFire
+} from '@fortawesome/free-solid-svg-icons';
 
 
-import Proceso from '../Procesos/Proceso';
+import * as Datariesgo from '../../utils/Datariesgo'
 
-const Lateral = ({cambio}) => {
+const Lateral = ({ cambio }) => {
+
+    const buscarRiesgos = Datariesgo.buscarRiesgos
+    const [ xriesgos, setXriesgos ] = useState([])
+
+    useEffect(() => {
+        const obtenerdata = async () => {
+            try {
+                const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setXriesgos)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        obtenerdata()
+
+    }, []);
+
+    console.log(xriesgos)
+
+
+
 
     return (
         <section className='lateral' >
@@ -29,11 +53,15 @@ const Lateral = ({cambio}) => {
             <div className='sub-lateral'>
 
                 <ul>
-                <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faHome} className="icon" />
                         Inicio
                     </li>
-                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                    <li id="inicio" onClick={() => cambio(
+                        <Dashboard
+                        almacenriesgos = {xriesgos}
+                        />
+                    )}>
                         <FontAwesomeIcon icon={faGripVertical} className="icon" />
                         Dashboard
                     </li>
@@ -44,14 +72,14 @@ const Lateral = ({cambio}) => {
                     </li>
                     <li id="productos" onClick={() => cambio(<Riesgos />)}>
                         <FontAwesomeIcon icon={faTriangleExclamation} className="icon" />
-                      
+
                         Riesgos
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faHouseChimneyCrack} className="icon" />
                         Causas y Consecuencias
                     </li>
-                    
+
                     <li id="clientes" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faToolbox} className="icon" />
                         Controles

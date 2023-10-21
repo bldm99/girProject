@@ -20,11 +20,6 @@ const Inicio = () => {
     const Bi_derecha ='5px 5px 20px 5px'
     
 
-
-    const t = Test.Dato 
-
-
-    console.log(t)
     return (
         <div className="container">
             

@@ -1,0 +1,49 @@
+
+.dashboard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .cont-dashboard{
+    box-sizing: border-box;
+    width: 98%;
+    background: #F9FAFB;
+}
+
+.cont-dashboard .contenido-dash{
+    display: flex;
+    /*background: orange;*/
+   
+
+}
+
+.contenido-dash .dash-mapa{
+
+    width: 100%;
+    
+}
+
+.contenido-dash .dash-detalles{
+    color: blanchedalmond;
+    background: black;
+    width: 100%;
+    border-radius: 12px;
+    
+}
+
+.dash-mapa .xy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.dash-mapa .xy .cuadro-calor{
+    box-sizing: border-box;
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 4px;
+    
+}
