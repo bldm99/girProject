@@ -1,4 +1,4 @@
-import './cuerpo.css'
+
 
 import { useState, useEffect } from 'react';
 import Lateral from '../menulateral/Lateral';
@@ -6,6 +6,7 @@ import Lateral from '../menulateral/Lateral';
 import Inicio from '../inicio/Inicio'
 
 import { ImMenu } from "react-icons/im";
+import './cuerpo.css'
 
 
 const Cuerpo = () => {
