@@ -12,6 +12,7 @@ import Cuerpo from './componentes/cuerpo/Cuerpo'
 import Login from './componentes/login/login'
 import Imputx from './componentes/imputx/Imputx'
 import Calor from './componentes/calor/Calor'
+import Pruebas from './pruebas/Pruebas'
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         </Route>
 
         <Route>
-          <Route path="/pruebas" element={<><Calor /></>} />
+          <Route path="/pruebas" element={<><Pruebas /></>} />
         </Route>
 
       </Routes>

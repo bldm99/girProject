@@ -1,6 +1,6 @@
 
 import axios from "axios";
-//const URLdesrrollo = "http://localhost:3000/"
+const URLdesrrolloLocal = "http://localhost:3000/"
 
 const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
 
@@ -42,3 +42,19 @@ export const buscarRiesgos = async (_id, xset) => {
     }
 
 }
+
+export const postMacroproceso = async (_id, m_nombre, m_tipo, m_descripcion, m_riesgos) => {
+    try {
+        await axios.post(`${URLdesrrolloLocal}registromacro`, {
+            _id,
+            m_nombre,
+            m_tipo,
+            m_descripcion,
+            m_riesgos
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
