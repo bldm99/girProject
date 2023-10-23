@@ -1,4 +1,4 @@
-import './cuerpo.css'
+
 
 import { useState, useEffect } from 'react';
 import Lateral from '../menulateral/Lateral';
