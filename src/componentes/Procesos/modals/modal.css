@@ -1,0 +1,194 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    max-height: 70vh;
+    /* Aumentado el tamaño máximo */
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.modal-title {
+    background-color: #FFA500;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+.modal-content {
+    padding: 0px 40px 40px 40px;
+}
+
+.modal-description {
+    margin-bottom: 20px;
+}
+
+.modal-description h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form label {
+    font-size: 16px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.modal-form textarea {
+    resize: vertical;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.close-button,
+.save-button {
+    background: #FFA500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+}
+
+.close-button:hover,
+.save-button:hover {
+    background: #FF8C00;
+}
+
+.risk-section,
+.selected-risks {
+    margin-top: 20px;
+}
+
+.risk-section h2,
+.selected-risks h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.risk-section input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.risk-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.risk-section li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.risk-section li:hover {
+    background-color: #e5e5e5;
+}
+
+.selected-risks-table-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-height: 20vh; 
+    overflow: auto;
+}
+
+
+.selected-risks table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.selected-risks table thead {
+    position: sticky;
+    top: 0;
+    background-color: #FFA500;
+    z-index: 1;
+}
+
+.selected-risks th,
+.selected-risks td {
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selected-risks th {
+    background-color: #FFA500;
+    color: #fff;
+}
+
+.selected-risks tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.risk-section ul.search-results {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #FF8C00;
+    max-height: 150px;
+    overflow-y: auto;
+    width: calc(90%);
+    box-sizing: border-box;
+    z-index: 3;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.risk-section ul.search-results li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.risk-section ul.search-results li:hover {
+    background-color: #f9f9f9;
+}
