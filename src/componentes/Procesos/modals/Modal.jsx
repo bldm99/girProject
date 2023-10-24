@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Modal.css';
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, data }) => {
     const [selectedRisks, setSelectedRisks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [risks] = useState([
-        { id: 1, description: 'Riesgo 1' },
-        { id: 2, description: 'Riesgo 2' },
-        { id: 3, description: 'Riesgo 3' },
-        // Agrega más riesgos según tus necesidades
-    ]);
+    const [risks, setRisks] = useState([]);
+
+    const handleGetRiesgos = () => {
+        setRisks(data)
+        console.log("Lista riesgos modal",data)
+    };
+
+    useEffect(() => {
+        if (data) {
+            handleGetRiesgos();
+        }
+    }, [data]);
 
     function handleRiskClick(risk) {
         setSelectedRisks([...selectedRisks, risk]);
@@ -77,11 +83,11 @@ const Modal = ({ isOpen, onClose }) => {
                                 <ul className="search-results">
                                     {risks
                                         .filter((risk) =>
-                                            risk.description.toLowerCase().includes(searchTerm.toLowerCase())
+                                            risk.nombre.toLowerCase().includes(searchTerm.toLowerCase())
                                         )
                                         .map((risk) => (
-                                            <li key={risk.id} onClick={() => handleRiskClick(risk)}>
-                                                {risk.description}
+                                            <li key={risk._id} onClick={() => handleRiskClick(risk)}>
+                                                {risk.nombre}
                                             </li>
                                         ))}
                                 </ul>
@@ -96,9 +102,9 @@ const Modal = ({ isOpen, onClose }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {selectedRisks.map((risk) => (
-                                            <tr key={risk.id}>
-                                                <td>{risk.description}</td>
+                                        {selectedRisks.map((risk, index) => (
+                                            <tr key={risk._id}>
+                                                <td>{risk.nombre}</td>
                                             </tr>
                                         ))}
                                     </tbody>
