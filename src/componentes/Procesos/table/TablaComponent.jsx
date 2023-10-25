@@ -1,7 +1,7 @@
 import React from 'react';
-import './TablaComponent.css'; 
+import './TablaComponent.css';
 
-const TablaComponent = ({data, openModal}) => {
+const TablaComponent = ({ data, openModal }) => {
     return (
         <div className="process-container">
             <div className="process-header">
@@ -21,13 +21,13 @@ const TablaComponent = ({data, openModal}) => {
                             <th>Codigo</th>
                             <th>Nombre del proceso</th>
                             <th>Tipo</th>
-                            <th>Categoria</th>
+                            <th>Descripcion</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((proceso, index) => (
                             <tr key={index}>
-                                <td>{proceso._id_user}</td>
+                                <td>{index + 1}</td>
                                 <td>{proceso.m_nombre}</td>
                                 <td>{proceso.m_tipo}</td>
                                 <td>{proceso.m_descripcion}</td>
