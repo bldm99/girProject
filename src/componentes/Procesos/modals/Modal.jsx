@@ -1,33 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import './Modal.css';
 
-const Modal = ({ isOpen, onClose, data }) => {
-    const [selectedRisks, setSelectedRisks] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
+const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
     const [risks, setRisks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    const handleGetRiesgos = () => {
-        setRisks(data)
-        console.log("Lista riesgos modal",data)
-    };
+    const [_id, setId] = useState(_idUser)
+    const [m_nombre, setM_nombre] = useState('')
+    const [m_tipo, setM_tipo] = useState('')
+    const [m_descripcion, setM_descripcion] = useState('')
+    const [selectedRisks, setSelectedRisks] = useState([]);
 
     useEffect(() => {
         if (data) {
-            handleGetRiesgos();
+            setRisks(data);
         }
     }, [data]);
 
-    function handleRiskClick(risk) {
+    const handleRiskClick = (risk) => {
         setSelectedRisks([...selectedRisks, risk]);
-        setSearchTerm(''); // Limpiar el término de búsqueda al seleccionar un riesgo
+        setSearchTerm('');
     }
 
-    function handleSave() {
-        // Envía la data a la ubicación especificada
-        console.log(selectedRisks);
-        // Aquí puedes enviar la data a tu API u otro destino
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const data = {
+            _id: _id,
+            m_nombre: m_nombre,
+            m_tipo: m_tipo,
+            m_descripcion: m_descripcion,
+            m_riesgos: selectedRisks
+        };
+
+        console.log('Riesgos Selcionados', selectedRisks);
+        setM_nombre('');
+        setM_tipo('');
+        setM_descripcion('');
+        setSelectedRisks([]);
+        onSubmit(proceso ? proceso._id : null, data);
         onClose();
-    }
+    };
+
+
+
 
     return (
         isOpen && (
@@ -36,23 +52,35 @@ const Modal = ({ isOpen, onClose, data }) => {
                     <div className="modal-title">
                         <h2>Crear Proceso</h2>
                     </div>
-                    <div className="modal-content">
-                        <div className="modal-description">
-                            <h2>Información</h2>
-                            <p>Escribe la información general de este proceso.</p>
-                        </div>
-                        <form className="modal-form">
+                    <form className="modal-form" onSubmit={handleSubmit}>
+                        <div className="modal-content">
+                            <div className="modal-description">
+                                <h2>Información</h2>
+                                <p>Escribe la información general de este proceso.</p>
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="nombre">Nombre</label>
-                                <input type="text" id="nombre" placeholder="Escribe el nombre" />
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    placeholder="Escribe el nombre"
+                                    value={m_nombre}
+                                    onChange={(e) => setM_nombre(e.target.value)}
+                                />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="tipo">Tipo</label>
-                                <select name="tipo" id="tipo" defaultValue="">
+                                <select
+                                    name="tipo"
+                                    id="tipo"
+                                    defaultValue=""
+                                    value={m_tipo}
+                                    onChange={(e) => setM_tipo(e.target.value)}
+                                >
                                     <option hidden value="">Seleccionar</option>
-                                    <option value="0">Misional</option>
-                                    <option value="1">Estrategico</option>
-                                    <option value="2">De apoyo</option>
+                                    <option value="Misional">Misional</option>
+                                    <option value="Estrategico">Estrategico</option>
+                                    <option value="De apoyo">De apoyo</option>
                                 </select>
                             </div>
                             <div className="form-group">
@@ -64,62 +92,70 @@ const Modal = ({ isOpen, onClose, data }) => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="descripcion">Descripción</label>
-                                <textarea id="descripcion" rows="4" maxLength="4000" placeholder="Escribe una corta descripción de no más de 4.000 caracteres." disabled={false}></textarea>
+                                <textarea
+                                    id="descripcion"
+                                    rows="4"
+                                    maxLength="4000"
+                                    placeholder="Escribe una corta descripción de no más de 4.000 caracteres."
+                                    disabled={false}
+                                    value={m_descripcion}
+                                    onChange={(e) => setM_descripcion(e.target.value)}
+                                ></textarea>
                             </div>
                             <div className="form-group file-upload">
                                 <label htmlFor="archivo">Adjuntar evidencia</label>
                                 <input type="file" id="archivo" />
                             </div>
-                        </form>
-                        <div className="risk-section">
-                            <h2>Asociar Riesgos</h2>
-                            <input
-                                type="text"
-                                placeholder="Buscar Riesgo"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                            {searchTerm && (
-                                <ul className="search-results">
-                                    {risks
-                                        .filter((risk) =>
-                                            risk.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-                                        )
-                                        .map((risk) => (
-                                            <li key={risk._id} onClick={() => handleRiskClick(risk)}>
-                                                {risk.nombre}
-                                            </li>
-                                        ))}
-                                </ul>
-                            )}
-                        </div>
-                        <div className="selected-risks">
-                            <div className="selected-risks-table-container">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Descripción del Riesgo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {selectedRisks.map((risk, index) => (
-                                            <tr key={risk._id}>
-                                                <td>{risk.nombre}</td>
+                            <div className="risk-section">
+                                <h2>Asociar Riesgos</h2>
+                                <input
+                                    type="text"
+                                    placeholder="Buscar Riesgo"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
+                                {searchTerm && (
+                                    <ul className="search-results">
+                                        {risks
+                                            .filter((risk) =>
+                                                risk.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+                                            )
+                                            .map((risk) => (
+                                                <li key={risk._id} onClick={() => handleRiskClick(risk)}>
+                                                    {risk.nombre}
+                                                </li>
+                                            ))}
+                                    </ul>
+                                )}
+                            </div>
+                            <div className="selected-risks">
+                                <div className="selected-risks-table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Descripción del Riesgo</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {selectedRisks.map((risk, index) => (
+                                                <tr key={risk._id}>
+                                                    <td>{risk.nombre}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="button-container">
-                        <button type="button" className="save-button" onClick={handleSave}>
-                            Guardar
-                        </button>
-                        <button type="button" onClick={onClose} className="close-button">
-                            Cerrar
-                        </button>
-                    </div>
+                        <div className="button-container">
+                            <button type="submit" className="save-button">
+                                Guardar
+                            </button>
+                            <button type="button" onClick={onClose} className="close-button">
+                                Cerrar
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )

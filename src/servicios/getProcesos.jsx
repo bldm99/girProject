@@ -20,6 +20,14 @@ export const getRiesgos = async (idUsuario) => {
     }
 };
 
+export const postMacroproceso = async (data) => {
+    try {
+        await axios.post(`${URLdesarrollo}registromacro`, data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 
