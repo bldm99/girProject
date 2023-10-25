@@ -41,7 +41,7 @@ const Proceso = () => {
     const updateProceso = async (_idProceso, data) => {
         try {
             if (_idProceso) {
-                // Si tienes algún código para actualizar procesos existentes, colócalo aquí.
+                // actualizar procesos existentes.
             } else {
                 postMacroproceso(data);
                 setProcesos([...procesos, data]);
