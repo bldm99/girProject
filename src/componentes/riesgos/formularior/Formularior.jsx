@@ -13,6 +13,10 @@ import Imputx from '../../imputx/Imputx';
 import * as Botones from '../../../colors/Btncolor'
 import * as Datariesgo from '../../../utils/Datariesgo'
 
+import Foriesgo from './Foriesgo';
+import Formacroproceso from './Formacroproceso';
+
+
 
 
 const Formularior = (props) => {
@@ -20,132 +24,41 @@ const Formularior = (props) => {
 
 
 
-    const { objrSetriesgos, registroRiesgo, closeBmodal } = props
+
+    const { objrSetriesgos, registroRiesgo, closeBmodal, borrador } = props
+
+    const [nombre, setNombre] = useState("hola")
+    const [impacto_desc, setImpacto_desc] = useState("")
+    const [probabilidad_desc, setProbabilidad_desc] = useState("")
+
+
+
+    const [componente, setComponente] = useState(
+        <Foriesgo
+            registroRiesgo={registroRiesgo}
+
+        />
+    );
 
     const postRiesgos = Datariesgo.postRiesgos
     const buscarRiesgos = Datariesgo.buscarRiesgos
 
+    const BuscarMacroprocesosx  = Datariesgo.BuscarMacroprocesosx
+    const [macroproceso , setMacroproceso] = useState([])
 
-    const [nombre, setNombre] = useState("")
-    const [impacto_desc, setImpacto_desc] = useState("")
-    //const [impacto_num, setImpacto_num] = useState("")
-    //const [impacto_porc, setImpacto_porc] = useState("")
-    const [probabilidad_desc, setProbabilidad_desc] = useState("")
-    //const [probabilidad_num, setProbabilidad_num] = useState("")
-    //const [probabilidad_porc, setProbabilidad_porc] = useState("")
-
-
-
-
-    const registrarx = async () => {
-
-        let impacto_num = 0;
-        let impacto_porc = ""
-        let probabilidad_num = 0
-        let probabilidad_porc = ""
-
-        if (impacto_desc === "Minima") {
-            impacto_num = 1;
-            impacto_porc = "20%";
-        } else if (impacto_desc === "Menor") {
-            impacto_num = 2;
-            impacto_porc = "40%";
-        } else if (impacto_desc === "Moderada") {
-            impacto_num = 4;
-            impacto_porc = "60%";
-        } else if (impacto_desc === "Mayor") {
-            impacto_num = 8;
-            impacto_porc = "80%";
-        } else {
-            impacto_num = 16;
-            impacto_porc = "100%";
-        }
-
-        if (probabilidad_desc === "Muy Baja") {
-            probabilidad_num = 1;
-            probabilidad_porc = "20%"
-        } else if (probabilidad_desc === "Baja") {
-            probabilidad_num = 2;
-            probabilidad_porc = "40%"
-        } else if (probabilidad_desc === "Media") {
-            probabilidad_num = 3;
-            probabilidad_porc = "60%"
-        } else if (probabilidad_desc === "Alta") {
-            probabilidad_num = 4;
-            probabilidad_porc = "80%"
-        } else {
-            probabilidad_num = 5;
-            probabilidad_porc = "100%"
-        }
-
-        const calificacion = impacto_num * probabilidad_num
-
-        var riesgo = ""
-
-        if ([6, 11, 16, 17, 21, 22, 23].includes(calificacion)) {
-            riesgo = "Bajo"
-        } else if ([1, 2, 7, 12, 13, 18, 24].includes(calificacion)) {
-            riesgo = "Medio"
-        } else if ([3, 8, 14, 19, 25].includes(calificacion)) {
-            riesgo = "Alto"
-        } else {
-            riesgo = "Extremo"
-        }
-
-        let valoresForm = {
-            idusuario: "6531d08612ec096c58717b97",
-            nombre:nombre,
-            impacto_desc:impacto_desc,
-            impacto_num:impacto_num.toString(),
-            impacto_porc,
-            probabilidad_desc:probabilidad_desc,
-            probabilidad_num:probabilidad_num.toString(),
-            probabilidad_porc,
-            calificacion:calificacion.toString(),
-            riesgo,
-            proceso_asignado:"En espera"
-        }
-        registroRiesgo(valoresForm)
-
-        /*event.preventDefault()
-        try {
-            await postRiesgos(
-                "6531d08612ec096c58717b97",
-                nombre,
-                impacto_desc,
-                impacto_num.toString(),
-                impacto_porc,
-                probabilidad_desc,
-                probabilidad_num.toString(),
-                probabilidad_porc,
-                calificacion.toString(),
-                riesgo,
-                "En espera"
-
-            )
-            await buscarRiesgos("6531d08612ec096c58717b97", objrSetriesgos)
-
-            toast.success('¡Riesgo registrado de manera exitosa!');
-
-            console.log("Producto registrado")
-        } catch (error) {
-            console.log(error)
-        }*/
-    }
-
- 
-
-
-    const ColorButton = Botones.ColorButton
-    const [animate, setAnimate] = useState(false);
     useEffect(() => {
-        setAnimate(true);
+        const obtenerdata = async () => {
+            try {
+                await BuscarMacroprocesosx("6531d08612ec096c58717b97", setMacroproceso)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        obtenerdata()
     }, []);
+    
 
-    const [nombreriesgo, setNombreriesgo] = useState("")
 
-    console.log(impacto_desc)
-    console.log(probabilidad_desc)
 
 
 
@@ -154,25 +67,52 @@ const Formularior = (props) => {
     return (
 
         <div className='formularior'>
-            
+
             <div className='box-for-cont'>
                 <div className='for-title'>
-                    Generar nuevo riesgo
+                    Generar nuevo riesgo {nombre}
                 </div>
                 <div className='box-for'>
                     <div className='riesgo-descripcion'>
-                        <h2>Riesgo</h2>
-                        <p>
-                            Posibilidad
-                            de que ocurra un evento o situación que
-                            pueda causar daño, pérdida o impacto
-                            negativo en una organización
-                            o un proyecto.
-                        </p>
+                        <h2>Opciones</h2>
+                        <div className='rli'>
+                            <ul>
+                                <li onClick={() => setComponente(<Foriesgo registroRiesgo={registroRiesgo} />)} >
+                                    Riesgos
+                                </li>
+                                <li onClick={() => setComponente(<Formacroproceso macroproceso={macroproceso} />)}>Asignar a Macroproceso</li>
+                                <li>Asignar a Proceso</li>
+                            </ul>
+                        </div>
 
                     </div>
 
-                    <div className='riesgo-datos'>
+                    <div className='for-componentes'>
+                        {
+                            componente
+                        }
+                    </div>
+
+
+
+                </div>
+
+
+                <div className='for-save'>
+                    <div className='for-botones'>
+                        <button onClick={() => { closeBmodal(false); borrador() }} >Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    );
+}
+export default Formularior;
+
+{/*<div className='riesgo-datos'>
                         <div className='text-titulo'>
                             <Imputx
                                 xlabel={"Nombre del riesgo:"}
@@ -258,25 +198,5 @@ const Formularior = (props) => {
                                 actualizarvalor={setNombreriesgo}
                                 tipo={'textarea'}
                             />
-
                         </div>
-
-
-                    </div>
-
-                </div>
-
-                <div className='for-save'>
-                    <div className='for-botones'>
-                        <button onClick={registrarx} >Registar</button>
-                        <button onClick={() => {closeBmodal(false)}} >Cancelar</button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    );
-}
-export default Formularior;
+                    </div>*/}

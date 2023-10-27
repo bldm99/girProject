@@ -45,7 +45,7 @@ export const buscarRiesgos = async (_id, xset) => {
 
 export const postMacroproceso = async (_id, m_nombre, m_tipo, m_descripcion, m_riesgos) => {
     try {
-        await axios.post(`${URLdesrrolloLocal}registromacro`, {
+        await axios.post(`${URLdesrrollo}registromacro`, {
             _id,
             m_nombre,
             m_tipo,
@@ -57,4 +57,46 @@ export const postMacroproceso = async (_id, m_nombre, m_tipo, m_descripcion, m_r
         console.log(error)
     }
 }
+
+export const pushMacro = async (_idUsuario, _idMacroproceso, nuevosRiesgos) => {
+    try {
+        await axios.post(`${URLdesrrollo}pushmacro`, {
+            _idUsuario,
+            _idMacroproceso,
+            nuevosRiesgos
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const BuscarMacroprocesosx = async (_id, xset) => {
+    try {
+        const response = await axios.get(`${URLdesrrollo}registromacro`, {
+            params: {
+                _id
+            }
+        });
+        xset(response.data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const Opimpacto = [
+    { "id": 1, "name": "Minima", "porc": "20" },
+    { "id": 2, "name": "Menor", "porc": "40" },
+    { "id": 3, "name": "Moderada", "porc": "60" },
+    { "id": 4, "name": "Mayor", "porc": "80" },
+    { "id": 5, "name": "Maxima", "porc": "100" }
+]
+export const Opprobabilidad= [
+    { "id": 1, "name": "Muy Baja", "porc": "20" },
+    { "id": 2, "name": "Baja", "porc": "40" },
+    { "id": 3, "name": "Media", "porc": "60" },
+    { "id": 4, "name": "Alta", "porc": "80" },
+    { "id": 5, "name": "Muy Alta", "porc": "100" }
+]
 

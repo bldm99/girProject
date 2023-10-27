@@ -129,7 +129,8 @@ const Tabla = (props) => {
                             <TableRow>
                                 {tableHeaders.map((header) => (
                                     <TableCell key={header.id} className={`fixed-headers header-background`}>
-                                        <th>{header.label}</th>
+                                       
+                                        <strong>{header.label}</strong>
                                     </TableCell>
                                 ))}
                             </TableRow>

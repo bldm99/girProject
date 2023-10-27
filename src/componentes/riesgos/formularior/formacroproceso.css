@@ -1,0 +1,44 @@
+
+.formacroproceso{
+    
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.formacroproceso .Buscadorx {
+    background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
+    background-size: 24px;
+    width: 100%;
+    
+    border: transparent;
+    border-bottom: solid 1px #ccc;
+    border-radius: 3px;
+    padding: 10px 10px 10px 30px;
+    outline: none;
+  }
+
+.formacroproceso .li-macroprocesos {
+    max-height: 300px; /* Establece la altura máxima deseada */
+    overflow-y: auto; /* Activa la barra de desplazamiento vertical si es necesario */
+  }
+  
+
+
+/*li-macroprocesos*/
+.formacroproceso ul{
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+
+}
+
+.formacroproceso ul li{
+    list-style: none;
+    
+}
