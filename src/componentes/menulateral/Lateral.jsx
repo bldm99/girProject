@@ -12,6 +12,8 @@ import Dashboard from '../dashboard/Dashboard';
 
 
 
+
+
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -28,7 +30,7 @@ import * as Datariesgo from '../../utils/Datariesgo'
 const Lateral = ({ cambio }) => {
 
     const buscarRiesgos = Datariesgo.buscarRiesgos
-    const [ xriesgos, setXriesgos ] = useState([])
+    const [xriesgos, setXriesgos] = useState([])
 
     useEffect(() => {
         const obtenerdata = async () => {
@@ -59,7 +61,7 @@ const Lateral = ({ cambio }) => {
                     </li>
                     <li id="inicio" onClick={() => cambio(
                         <Dashboard
-                        almacenriesgos = {xriesgos}
+                            almacenriesgos={xriesgos}
                         />
                     )}>
                         <FontAwesomeIcon icon={faGripVertical} className="icon" />
@@ -70,9 +72,12 @@ const Lateral = ({ cambio }) => {
                         <FontAwesomeIcon icon={faClipboardList} className="icon" />
                         Procesos
                     </li>
-                    <li id="productos" onClick={() => cambio(<Riesgos />)}>
+                    <li id="productos" onClick={() => cambio(
+                        <Riesgos
+                            almacenriesgos={xriesgos}
+                        />
+                    )}>
                         <FontAwesomeIcon icon={faTriangleExclamation} className="icon" />
-
                         Riesgos
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>

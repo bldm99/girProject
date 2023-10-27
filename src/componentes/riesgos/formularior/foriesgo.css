@@ -1,0 +1,50 @@
+.forriesgo {
+    background: white;
+ }
+ .forriesgo .text-titulo {
+     width: 100%;
+     box-sizing: border-box;
+     margin-bottom: 15px;
+ }
+ .forriesgo .text-titulo .opcion-riesgo {
+     display: flex;
+     gap: 10px;
+     
+ }
+  
+
+ .lista-opciones select{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid grey;
+    outline-color: blueviolet; /*color de border al seleccionar input*/
+    
+   
+}
+
+
+.forriesgo button {
+    position: absolute;
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+    box-sizing: border-box;
+    transition: all .5s;
+    bottom: 5px;
+    right: 125px;
+}
+
+
+
+
+.forriesgo button:hover {
+    background-color: #05019e;
+    transform: scale(1.1);
+}

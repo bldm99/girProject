@@ -19,7 +19,7 @@ const Pruebas = () => {
             try {
                 const x = await buscarRiesgos("6531d08612ec096c58717b97", setDatoriesgo)
                 const primerosTresRiesgos = x.slice(0, 3);
-                //setMriesgoarray(primerosTresRiesgos)
+                setMriesgoarray(primerosTresRiesgos)
             } catch (error) {
                 console.log(error)
             }
