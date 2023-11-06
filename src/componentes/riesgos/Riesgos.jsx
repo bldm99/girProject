@@ -26,7 +26,7 @@ const Riesgos = (props) => {
 
 
     //Datos enviados del componente padre Lateral 
-    const { almacenriesgos} = props
+    const { almacenriesgos } = props
 
 
 
@@ -99,9 +99,9 @@ const Riesgos = (props) => {
             const nuevosRiesgos = [
                 datoSinIdUsuario
             ];
-            
+
             for (let i = 0; i < macroSeleccionados.length; i++) {
-                await pushMacro(dato.idusuario, macroSeleccionados[i] ,nuevosRiesgos )
+                await pushMacro(dato.idusuario, macroSeleccionados[i], nuevosRiesgos)
             }
 
             //Una vez registrado se cierra el modal
@@ -118,15 +118,18 @@ const Riesgos = (props) => {
     return (
         <div className='riesgo-container'>
             <ToastContainer />
-            <div className='btn-flot'>
-                <Button variant="outlined" onClick={() => { registrar() }}>
-                    Generar nuevo riesgo
-                </Button>
-            </div>
-
+            
             <div className='riesgo-desplegable'>
                 <div className='B-riesgot'>
-                    <h2>Riesgos</h2>
+                    <div className='head-title'>
+                        <h2>Riesgos</h2>
+                        <div className='btn-flot'>
+                            <Button variant="outlined" onClick={() => { registrar() }}>
+                                Generar nuevo riesgo
+                            </Button>
+                        </div>
+                    </div>
+
                     <p>"¡Bienvenido, al apartado de Control de Riesgos de nuestra página web!
                         Aquí encontrarás las herramientas y recursos necesarios para identificar,
                         evaluar, mitigar y gestionar riesgos en tus proyectos, negocios o
@@ -168,7 +171,7 @@ const Riesgos = (props) => {
                     </div>
                 )}
             </section>
-            
+
         </div>
     );
 }

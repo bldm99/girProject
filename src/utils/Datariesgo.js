@@ -4,6 +4,8 @@ const URLdesrrolloLocal = "http://localhost:3000/"
 
 const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
 
+const net = "http://localhost:5251/prueba/listar"
+
 export const postRiesgos = async (_id, nombre, impacto_desc, impacto_num, impacto_porc,
     probabilidad_desc, probabilidad_num, probabilidad_porc, calificacion, riesgo, proceso_asignado) => {
     try {
@@ -85,7 +87,35 @@ export const BuscarMacroprocesosx = async (_id, xset) => {
     }
 }
 
+export const BuscarMacroprocesosnet = async (_id, xset) => {
+    try {
+        const response = await axios.get(`${net}`, {
+            params: {
+                _id
+            }
+        });
+        xset(response.data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const Opimpacto = [
+    { "id": 1, "name": "Insignificante", "porc": "20" },
+    { "id": 2, "name": "Menor", "porc": "40" },
+    { "id": 3, "name": "Moderado", "porc": "60" },
+    { "id": 4, "name": "Mayor", "porc": "80" },
+    { "id": 5, "name": "Catastrofico", "porc": "100" }
+]
+export const Opprobabilidad= [
+    { "id": 1, "name": "Improbable", "porc": "20" },
+    { "id": 2, "name": "Posible", "porc": "40" },
+    { "id": 3, "name": "Ocasional", "porc": "60" },
+    { "id": 4, "name": "Probable", "porc": "80" },
+    { "id": 5, "name": "Frecuente", "porc": "100" }
+]
+/*export const Opimpacto = [
     { "id": 1, "name": "Minima", "porc": "20" },
     { "id": 2, "name": "Menor", "porc": "40" },
     { "id": 3, "name": "Moderada", "porc": "60" },
@@ -98,5 +128,5 @@ export const Opprobabilidad= [
     { "id": 3, "name": "Media", "porc": "60" },
     { "id": 4, "name": "Alta", "porc": "80" },
     { "id": 5, "name": "Muy Alta", "porc": "100" }
-]
+]*/
 

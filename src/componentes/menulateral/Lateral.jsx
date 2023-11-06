@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './lateral.css';
@@ -9,6 +9,8 @@ import Inicio from '../inicio/Inicio';
 import Riesgos from '../riesgos/Riesgos';
 import Proceso from '../Procesos/Proceso';
 import Dashboard from '../dashboard/Dashboard';
+import Reportes from '../reportes/Reportes';
+
 
 
 
@@ -32,10 +34,14 @@ const Lateral = ({ cambio }) => {
     const buscarRiesgos = Datariesgo.buscarRiesgos
     const [xriesgos, setXriesgos] = useState([])
 
+    const buscarRiesgosmacro = Datariesgo.BuscarMacroprocesosnet
+    const [macroriesgos, setMacroriesgos] = useState([])
+
     useEffect(() => {
         const obtenerdata = async () => {
             try {
                 const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setXriesgos)
+                await buscarRiesgosmacro("6531d08612ec096c58717b97", setMacroriesgos)
             } catch (error) {
                 console.log(error)
             }
@@ -44,7 +50,7 @@ const Lateral = ({ cambio }) => {
 
     }, []);
 
-    console.log(xriesgos)
+    //console.log(xriesgos)
 
 
 
@@ -97,7 +103,12 @@ const Lateral = ({ cambio }) => {
                         <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
                         Plan de Accion
                     </li>
-                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                    <li id="inicio" onClick={() => cambio(
+                        <Reportes
+                        almacenriesgos={xriesgos}
+                        almacenmacroriesgos={macroriesgos}
+                        />
+                    )}>
                         <FontAwesomeIcon icon={faListCheck} className="icon" />
                         Reportes
                     </li>

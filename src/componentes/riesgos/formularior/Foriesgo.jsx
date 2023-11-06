@@ -41,13 +41,13 @@ const Foriesgo = (props) => {
         let probabilidad_num = 0
         let probabilidad_porc = ""
 
-        if (impacto_desc === "Minima") {
+        if (impacto_desc === "Insignificante") {
             impacto_num = 1;
             impacto_porc = "20%";
         } else if (impacto_desc === "Menor") {
             impacto_num = 2;
             impacto_porc = "40%";
-        } else if (impacto_desc === "Moderada") {
+        } else if (impacto_desc === "Moderado") {
             impacto_num = 4;
             impacto_porc = "60%";
         } else if (impacto_desc === "Mayor") {
@@ -58,16 +58,16 @@ const Foriesgo = (props) => {
             impacto_porc = "100%";
         }
 
-        if (probabilidad_desc === "Muy Baja") {
+        if (probabilidad_desc === "Improbable") {
             probabilidad_num = 1;
             probabilidad_porc = "20%"
-        } else if (probabilidad_desc === "Baja") {
+        } else if (probabilidad_desc === "Posible") {
             probabilidad_num = 2;
             probabilidad_porc = "40%"
-        } else if (probabilidad_desc === "Media") {
+        } else if (probabilidad_desc === "Ocasional") {
             probabilidad_num = 3;
             probabilidad_porc = "60%"
-        } else if (probabilidad_desc === "Alta") {
+        } else if (probabilidad_desc === "Probable") {
             probabilidad_num = 4;
             probabilidad_porc = "80%"
         } else {
@@ -79,11 +79,12 @@ const Foriesgo = (props) => {
 
         var riesgo = ""
 
-        if ([6, 11, 16, 17, 21, 22, 23].includes(calificacion)) {
+        //Require modificacion
+        if ([1, 2, 3, 4].includes(calificacion)) {
             riesgo = "Bajo"
-        } else if ([1, 2, 7, 12, 13, 18, 24].includes(calificacion)) {
+        } else if ([5, 6, 8, 10, 12].includes(calificacion)) {
             riesgo = "Medio"
-        } else if ([3, 8, 14, 19, 25].includes(calificacion)) {
+        } else if ([16, 20, 24].includes(calificacion)) {
             riesgo = "Alto"
         } else {
             riesgo = "Extremo"
@@ -139,7 +140,7 @@ const Foriesgo = (props) => {
             </div>
 
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Consecuencia</strong></label>
+                <label htmlFor=""> <strong>Impacto de riesgo</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={impacto_desc} onChange={manejarCambio} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Consecuencia</option>
@@ -154,7 +155,7 @@ const Foriesgo = (props) => {
             </div>
 
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Probabilidad</strong></label>
+                <label htmlFor=""> <strong>Cafilicar frecuencia de riesgo</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={probabilidad_desc} onChange={manejarCambio2} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Probabilidad</option>

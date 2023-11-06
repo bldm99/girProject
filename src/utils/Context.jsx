@@ -2,10 +2,10 @@
 import React, { useState, createContext } from "react";
 
 export const NombreContext = createContext()
+export const MapaContext = createContext()
 
 
 export const CounterProvider = ({ children }) => {
-
     const [nombre, setNombre] = useState("")
     const [impacto_desc, setImpacto_desc] = useState("")
     const [probabilidad_desc, setProbabilidad_desc] = useState("")
@@ -34,6 +34,21 @@ export const CounterProvider = ({ children }) => {
         <NombreContext.Provider value={values}>
             {children}
         </NombreContext.Provider>
+    )
+
+}
+
+export const MapaProvider = ({ children }) => {
+    const [datoscuadrante , setDatoscuadrante] = useState([])
+    const values = {
+        datoscuadrante,
+        setDatoscuadrante
+    }
+
+    return (
+        <MapaContext.Provider value={values}>
+            {children}
+        </MapaContext.Provider>
     )
 
 }

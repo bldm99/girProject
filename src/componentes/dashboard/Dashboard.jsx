@@ -28,8 +28,6 @@ const Dashboard = (props) => {
     const cuadrante4 = almacenriesgos.filter((item) => item.calificacion === "40");
     const cuadrante5 = almacenriesgos.filter((item) => item.calificacion === "80");
 
-
-
     const cuadrante6 = repetidos4.filter((item) => item.impacto_num === "1" && item.probabilidad_num === "4");
     const cuadrante7 = repetidos8.filter((item) => item.impacto_num === "2" && item.probabilidad_num === "4")
     const cuadrante8 = repetidos16.filter((item) => item.impacto_num === "4" && item.probabilidad_num === "4")

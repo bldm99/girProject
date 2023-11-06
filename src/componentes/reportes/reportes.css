@@ -1,0 +1,182 @@
+.reportes {
+  width: 100%;
+  /*background-color: red;*/
+  display: flex;
+  justify-content: center;
+}
+
+.reportes .cuerpo-reportes {
+  width: 98%;
+  background: #F9FAFB;
+
+}
+
+.reportes .reporte-filtro-fecha {
+
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reportes .reporte-filtro-fecha .f1 {}
+
+.reportes .reporte-filtro-fecha .f1 input {
+  box-sizing: border-box;
+  border: none;
+  padding: 8px 6px;
+  border-radius: 3px;
+  outline-color: blue;
+}
+
+.reportes .reporte-filtro-fecha .f2 {
+  display: flex;
+  gap: 20px;
+}
+
+.reportes .reporte-filtro-fecha .f2 button {
+  border: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.reportes .reporte-filtro-fecha .f2 button:first-child {
+  background-color: black;
+  color: white;
+}
+
+/* Filtro colores*/
+.reportes .reporte-filtro-color {
+  margin-top: 3px;
+  display: flex;
+  gap: 5px;
+}
+
+
+.reportes .reporte-filtro-color .c1 {
+  width: 30px;
+  height: 30px;
+  background-color: #60bf52;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reportes .reporte-filtro-color .c2 {
+  width: 30px;
+  height: 30px;
+  background-color: #FFC043;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reportes .reporte-filtro-color .c3 {
+  width: 30px;
+  height: 30px;
+  background-color: #F27649;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reportes .reporte-filtro-color .c4 {
+  width: 30px;
+  height: 30px;
+  background-color: #F25252;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/*Cuadro mapa calor*/
+.reportes .reporte-calor {
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+
+
+
+.reportes .reporte-calor .rmapx {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: greenyellow;*/
+  width: 50%;
+}
+
+
+.reportes .reporte-calor .map-general {
+  width: 50%;
+  font-size: 14px;
+}
+
+.reportes .reporte-calor .map-detalles {
+  max-height: 60vh;
+  overflow: auto;
+  width: 100%;
+}
+.reportes .reporte-calor .map-detalles .map-save{
+  
+  border: 1px solid rgb(7, 27, 90) ;
+  width: 18%;
+  text-align: center;
+  
+  border-radius: 5px;
+}
+.reportes .reporte-calor .map-detalles .map-ty {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reportes .reporte-calor .map-detalles .table-map {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+ 
+}
+.table-map-headers{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
+    color: black;
+    font-weight: bolder;
+}
+.table-map-headers tr:last-child th {
+  border-bottom: 2px solid rgb(13, 3, 49); /* Establece el estilo y color de la línea de separación */
+}
+
+.table-map-line{
+  width: 100%;
+  background: rgb(104, 228, 104);
+  padding: 5px;
+}
+
+
+
+.table-map th, .table-map td {
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-map .td-unico {
+  display: flex;
+  justify-content: center;
+}
+.table-map .td-unico span{
+  text-align: center;
+  width: 80%;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+
+
+.table-map tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

@@ -3,7 +3,9 @@
     
 }
 
-.riesgo-container .btn-flot {}
+.riesgo-container .btn-flot {
+
+}
 
 .riesgo-container .F {
     position: relative;
@@ -38,8 +40,11 @@
 
 
 
-
-
+.riesgo-container .riesgo-desplegable .B-riesgot .head-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 

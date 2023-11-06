@@ -6,13 +6,13 @@ import './calor.css'
 
 const Calor = (props) => {
 
-    const {ycolor , yborde , cantidad} = props
+    const {ycolor , yborde , cantidad , cli , val} = props
 
     //permite pintar un backgroun si es que se tiene datos
     let resulBackground = "sincolor"
     let resulColor = ycolor
     let resulVisible = "hidden"
-    console.log(cantidad)
+    //console.log(cantidad)
 
     if(cantidad > 0){
         resulBackground = "black"
@@ -31,9 +31,13 @@ const Calor = (props) => {
         /*visibility: resulVisible,*/
     }
 
+    const ab = () =>{
+        cli(val)
+    }
+
 
     return ( 
-        <div className='calor' style={mystyle}>
+        <div className='calor' style={mystyle} onClick={ab}>
             <div className='circle-c' style={mystylecircle}>
                 {cantidad}
             </div>
