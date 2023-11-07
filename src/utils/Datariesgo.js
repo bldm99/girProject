@@ -87,6 +87,22 @@ export const BuscarMacroprocesosx = async (_id, xset) => {
     }
 }
 
+export const BuscarMacroriesgo= async (_id, macroprocesoId , xset) => {
+    try {
+        const response = await axios.get(`${URLdesrrollo}macroriesgo`, {
+            params: {
+                _id,
+                macroprocesoId //this date is sililar in postman
+            }
+        });
+        xset(response.data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export const BuscarMacroprocesosnet = async (_id, xset) => {
     try {
         const response = await axios.get(`${net}`, {

@@ -34,14 +34,20 @@ const Lateral = ({ cambio }) => {
     const buscarRiesgos = Datariesgo.buscarRiesgos
     const [xriesgos, setXriesgos] = useState([])
 
+    const buscarMacros= Datariesgo.BuscarMacroprocesosx
+    const [allmacros, setAllmacros] = useState([])
+
     const buscarRiesgosmacro = Datariesgo.BuscarMacroprocesosnet
     const [macroriesgos, setMacroriesgos] = useState([])
 
     useEffect(() => {
         const obtenerdata = async () => {
             try {
-                const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setXriesgos)
+
+                //Revison ya que al renderizar rapido rapido solo carga uno
+                await buscarRiesgos("6531d08612ec096c58717b97", setXriesgos)
                 await buscarRiesgosmacro("6531d08612ec096c58717b97", setMacroriesgos)
+                await buscarMacros("6531d08612ec096c58717b97", setAllmacros)
             } catch (error) {
                 console.log(error)
             }
@@ -51,6 +57,7 @@ const Lateral = ({ cambio }) => {
     }, []);
 
     //console.log(xriesgos)
+    //console.log(allmacros)
 
 
 
@@ -107,6 +114,7 @@ const Lateral = ({ cambio }) => {
                         <Reportes
                         almacenriesgos={xriesgos}
                         almacenmacroriesgos={macroriesgos}
+                        almacenmacros={allmacros}
                         />
                     )}>
                         <FontAwesomeIcon icon={faListCheck} className="icon" />

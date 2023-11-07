@@ -40,9 +40,12 @@ export const CounterProvider = ({ children }) => {
 
 export const MapaProvider = ({ children }) => {
     const [datoscuadrante , setDatoscuadrante] = useState([])
+    const [xcantidad , setXcantidad] = useState([])
     const values = {
         datoscuadrante,
-        setDatoscuadrante
+        setDatoscuadrante,
+        xcantidad,
+        setXcantidad
     }
 
     return (

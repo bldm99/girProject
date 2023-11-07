@@ -14,8 +14,8 @@ const Mapx = (props) => {
     const { datoscuadrante , setDatoscuadrante } = MapaData
 
 
-    const { almacenriesgos } = props
-    //console.log(almacenriesgos)
+    const {  xydatomapa } = props
+    //console.log( xydatomapa)//datos totales de riesgos
 
     const verde = "#60bf52"
     const amarillo = "#FFC043"
@@ -30,33 +30,33 @@ const Mapx = (props) => {
 
     const cli = (obj) => {   
         setDatoscuadrante(obj)
-        
     }
-    console.log(datoscuadrante)
+    
+    
 
-    const repetidos2 = almacenriesgos.filter((item) => item.calificacion === "2");
-    const repetidos4 = almacenriesgos.filter((item) => item.calificacion === "4");
-    const repetidos8 = almacenriesgos.filter((item) => item.calificacion === "8");
-    const repetidos16 = almacenriesgos.filter((item) => item.calificacion === "16");
-    const repetidos32 = almacenriesgos.filter((item) => item.calificacion === "32");
+    const repetidos2 =  xydatomapa.filter((item) => item.calificacion === "2");
+    const repetidos4 =  xydatomapa.filter((item) => item.calificacion === "4");
+    const repetidos8 =  xydatomapa.filter((item) => item.calificacion === "8");
+    const repetidos16 =  xydatomapa.filter((item) => item.calificacion === "16");
+    const repetidos32 =  xydatomapa.filter((item) => item.calificacion === "32");
 
-    const cuadrante1 = almacenriesgos.filter((item) => item.calificacion === "5");
-    const cuadrante2 = almacenriesgos.filter((item) => item.calificacion === "10");
-    const cuadrante3 = almacenriesgos.filter((item) => item.calificacion === "20");
-    const cuadrante4 = almacenriesgos.filter((item) => item.calificacion === "40");
-    const cuadrante5 = almacenriesgos.filter((item) => item.calificacion === "80");
+    const cuadrante1 =  xydatomapa.filter((item) => item.calificacion === "5");
+    const cuadrante2 =  xydatomapa.filter((item) => item.calificacion === "10");
+    const cuadrante3 =  xydatomapa.filter((item) => item.calificacion === "20");
+    const cuadrante4 =  xydatomapa.filter((item) => item.calificacion === "40");
+    const cuadrante5 =  xydatomapa.filter((item) => item.calificacion === "80");
 
     const cuadrante6 = repetidos4.filter((item) => item.impacto_num === "1" && item.probabilidad_num === "4");
     const cuadrante7 = repetidos8.filter((item) => item.impacto_num === "2" && item.probabilidad_num === "4")
     const cuadrante8 = repetidos16.filter((item) => item.impacto_num === "4" && item.probabilidad_num === "4")
     const cuadrante9 = repetidos32.filter((item) => item.impacto_num === "8" && item.probabilidad_num === "4")
-    const cuadrante10 = almacenriesgos.filter((item) => item.calificacion === "64");
+    const cuadrante10 =  xydatomapa.filter((item) => item.calificacion === "64");
 
-    const cuadrante11 = almacenriesgos.filter((item) => item.calificacion === "3");
-    const cuadrante12 = almacenriesgos.filter((item) => item.calificacion === "6");
-    const cuadrante13 = almacenriesgos.filter((item) => item.calificacion === "12");
-    const cuadrante14 = almacenriesgos.filter((item) => item.calificacion === "24");
-    const cuadrante15 = almacenriesgos.filter((item) => item.calificacion === "48");
+    const cuadrante11 =  xydatomapa.filter((item) => item.calificacion === "3");
+    const cuadrante12 =  xydatomapa.filter((item) => item.calificacion === "6");
+    const cuadrante13 =  xydatomapa.filter((item) => item.calificacion === "12");
+    const cuadrante14 =  xydatomapa.filter((item) => item.calificacion === "24");
+    const cuadrante15 =  xydatomapa.filter((item) => item.calificacion === "48");
 
     const cuadrante16 = repetidos2.filter((item) => item.impacto_num === "1" && item.probabilidad_num === "2");
     const cuadrante17 = repetidos4.filter((item) => item.impacto_num === "2" && item.probabilidad_num === "2");
@@ -64,7 +64,7 @@ const Mapx = (props) => {
     const cuadrante19 = repetidos16.filter((item) => item.impacto_num === "8" && item.probabilidad_num === "2");
     const cuadrante20 = repetidos32.filter((item) => item.impacto_num === "16" && item.probabilidad_num === "2");
 
-    const cuadrante21 = almacenriesgos.filter((item) => item.calificacion === "1");
+    const cuadrante21 =  xydatomapa.filter((item) => item.calificacion === "1");
     const cuadrante22 = repetidos2.filter((item) => item.impacto_num === "2" && item.probabilidad_num === "1");
     const cuadrante23 = repetidos4.filter((item) => item.impacto_num === "4" && item.probabilidad_num === "1");
     const cuadrante24 = repetidos8.filter((item) => item.impacto_num === "8" && item.probabilidad_num === "1");

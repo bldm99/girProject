@@ -89,14 +89,13 @@
 .reportes .reporte-calor {
   display: flex;
   justify-content: space-between;
-  
-  
+  /*background: red;*/
 }
 
 
 
 .reportes .reporte-calor .rmapx {
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,19 +107,18 @@
 .reportes .reporte-calor .map-general {
   width: 50%;
   font-size: 14px;
+  /*background-color: #0f5ead;*/
 }
 
 .reportes .reporte-calor .map-detalles {
-  max-height: 60vh;
+  /*max-height: 60vh;
   overflow: auto;
-  width: 100%;
+  width: 100%;*/
 }
 .reportes .reporte-calor .map-detalles .map-save{
-  
   border: 1px solid rgb(7, 27, 90) ;
   width: 18%;
   text-align: center;
-  
   border-radius: 5px;
 }
 .reportes .reporte-calor .map-detalles .map-ty {
@@ -133,7 +131,6 @@
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
- 
 }
 .table-map-headers{
     position: sticky;
