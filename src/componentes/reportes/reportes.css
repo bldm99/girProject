@@ -110,10 +110,9 @@
   /*background-color: #0f5ead;*/
 }
 
-.reportes .reporte-calor .map-detalles {
-  /*max-height: 60vh;
-  overflow: auto;
-  width: 100%;*/
+.reportes .reporte-calor .map-detalles .table-map-procesos ul li {
+ 
+  cursor: pointer;
 }
 .reportes .reporte-calor .map-detalles .map-save{
   border: 1px solid rgb(7, 27, 90) ;
