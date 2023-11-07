@@ -108,12 +108,12 @@ const Tabla = (props) => {
                         </Search>
                     </div>
 
-                    <div className='btn-filtros'>
+                    {/*<div className='btn-filtros'>
                         <ColorButton variant="contained" col="#52b202" hov="#76ff03">R. Bajo</ColorButton>
                         <ColorButton variant="contained" col="#ffea00" hov="#ffee33">R. Medio</ColorButton>
                         <ColorButton variant="contained" col="#ff9100" hov="#ffa733">R Alto</ColorButton>
                         <ColorButton variant="contained" col="#b22a00" hov="#ff3d00">R Total</ColorButton>
-                    </div>
+    </div>*/}
                 </div>
 
                 <div>

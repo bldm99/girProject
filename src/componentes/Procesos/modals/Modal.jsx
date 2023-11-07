@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Modal.css';
+import './modal.css';
 
 const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
     const [risks, setRisks] = useState([]);

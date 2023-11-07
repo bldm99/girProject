@@ -70,7 +70,7 @@ const Formularior = (props) => {
 
             <div className='box-for-cont'>
                 <div className='for-title'>
-                    Generar nuevo riesgo {nombre}
+                    Generar nuevo riesgo
                 </div>
                 <div className='box-for'>
                     <div className='riesgo-descripcion'>
