@@ -10,7 +10,7 @@ import Riesgos from '../riesgos/Riesgos';
 import Proceso from '../Procesos/Proceso';
 import Dashboard from '../dashboard/Dashboard';
 import Reportes from '../reportes/Reportes';
-
+import Causas from '../causas_conse/Causas';
 
 
 
@@ -28,6 +28,7 @@ import {
 
 
 import * as Datariesgo from '../../utils/Datariesgo'
+
 
 const Lateral = ({ cambio }) => {
 
@@ -93,7 +94,7 @@ const Lateral = ({ cambio }) => {
                         <FontAwesomeIcon icon={faTriangleExclamation} className="icon" />
                         Riesgos
                     </li>
-                    <li id="inicio" onClick={() => cambio(<Inicio />)}>
+                    <li id="inicio" onClick={() => cambio(<Causas />)}>
                         <FontAwesomeIcon icon={faHouseChimneyCrack} className="icon" />
                         Causas y Consecuencias
                     </li>

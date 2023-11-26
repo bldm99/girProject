@@ -1,0 +1,50 @@
+.causas{
+    background: #F9FAFB;
+}
+
+.causas .causas-cabezera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 4px;
+}
+.causas .causas-cabezera button{
+    background: #000045 ;
+    background: #05019e;
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 4px 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .5s;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+.causas .causas-cabezera button:hover {
+    background: #000045;
+    transform: scale(1.04);
+}
+
+
+.modal-causas-Bldm {
+    /*position: fixed;*/
+    position: fixed;
+    top: 0;
+    left: 10%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .modal-causas-Bldm{
+        left: 0;
+    }
+    
+}
+
+    
