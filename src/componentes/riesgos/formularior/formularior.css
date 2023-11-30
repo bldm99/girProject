@@ -5,6 +5,7 @@
     position: relative;
     overflow: hidden;
     font-size: calc(1rem * .9);
+    position: relative;
 }
 
 .formularior .box-for-cont .for-title {
@@ -16,6 +17,9 @@
     box-sizing: border-box;
     font-weight: bold;
     text-transform: uppercase;
+    background: #000016;
+    /*background: #edb000;*/
+    background: #05019e;
 }
 
 
@@ -25,11 +29,15 @@
     background: white;
     color: #666666;
     grid-template-columns: 20% 80%;
-    width: 100%;
+   
 
     padding: 8px;
     box-sizing: border-box;
+   
+    
 }
+
+
 
 
 .box-for p,
@@ -40,7 +48,53 @@
     box-sizing: border-box;
 }
 
-.box-for .riesgo-datos {}
+
+
+.box-for .riesgo-descripcion {
+
+    
+   
+}
+.box-for .riesgo-descripcion .rli {
+    color: white; 
+}
+.box-for .riesgo-descripcion .rli ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    height: 100%;
+}
+.box-for .riesgo-descripcion .rli ul li {
+    background: #05019e;
+    width: 90%;
+    border-radius: 2px;
+    padding: 4px 2px;
+    cursor: pointer;
+}
+.box-for .riesgo-descripcion .rli ul li:hover {
+    background: #000045 ;
+  
+}
+
+
+
+/*.box-for .riesgo-datos {
+   background: white;
+}
+.riesgo-datos .text-titulo {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.riesgo-datos .text-titulo .opcion-riesgo {
+    display: flex;
+    gap: 10px;
+    
+}*/
+
 
 
 
@@ -63,6 +117,10 @@
     justify-content: end;
     gap: 10px;
 }
+
+.formularior .box-for-cont .for-save {
+    
+}
 .formularior .box-for-cont .for-save button {
     background: black;
     color: white;
@@ -76,20 +134,14 @@
     box-sizing: border-box;
     transition: all .5s;
 }
-.formularior .box-for-cont .for-save button:hover {
-    background-color: #e65100;
-    color: black;
-    transform: scale(1.1);
-  }
 
-.riesgo-datos .text-titulo {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-.riesgo-datos .text-titulo .opcion-riesgo {
-    display: flex;
-    gap: 10px;
+
+
+
+.formularior .box-for-cont .for-save button:hover {
+    background-color: rgb(196, 7, 7);
+    
+    transform: scale(1.1);
 }
 
 

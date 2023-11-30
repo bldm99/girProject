@@ -6,17 +6,26 @@
     align-items: center;
     width: 70px;
     height: 70px;
-    
     padding: 20px;
-   
     box-sizing: border-box;
     border-radius: 5px;
-
+}
+.calor:hover{
+    background: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transform: scale(1.1);
 }
 
 .calor .circle-c{
     box-sizing: border-box;
-    
+    cursor: pointer;
     width: 20px;
     height: 20px;
     border-radius: 50%;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './riesgos.css'
 
 import Button from '@mui/material/Button';
@@ -14,15 +14,28 @@ import * as Datariesgo from '../../utils/Datariesgo'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Riesgos = () => {
+import { NombreContext } from '../../utils/Context';
+
+const Riesgos = (props) => {
+
+    const FormData = useContext(NombreContext)
+    const { macroSeleccionados, borrarData } = FormData
+    console.log(macroSeleccionados)
+
+
+
+
+    //Datos enviados del componente padre Lateral 
+    const { almacenriesgos } = props
+
 
 
     const buscarRiesgos = Datariesgo.buscarRiesgos
     const postRiesgos = Datariesgo.postRiesgos
+    const pushMacro = Datariesgo.pushMacro
 
     const [datariesgos, setDatariesgos] = useState([])
-    // Ordena los datos en objriesgos por la fecha en orden descendente
-    const sortedData = datariesgos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
 
 
 
@@ -43,6 +56,7 @@ const Riesgos = () => {
     const handleOutsideClick = (event) => {
         if (event.target.classList.contains("modalBldm")) {
             setModalVisible(false);
+            borrarData()
         }
     };
 
@@ -51,8 +65,9 @@ const Riesgos = () => {
 
         const obtenerdata = async () => {
             try {
-                const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
-                
+                //const riesgos = await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+                setDatariesgos(almacenriesgos)
+
             } catch (error) {
                 console.log(error)
             }
@@ -79,11 +94,22 @@ const Riesgos = () => {
                 dato.riesgo,
                 dato.proceso_asignado
             )
+
+            const { idusuario, ...datoSinIdUsuario } = dato;
+            const nuevosRiesgos = [
+                datoSinIdUsuario
+            ];
+
+            for (let i = 0; i < macroSeleccionados.length; i++) {
+                await pushMacro(dato.idusuario, macroSeleccionados[i], nuevosRiesgos)
+            }
+
             //Una vez registrado se cierra el modal
             setModalVisible(false);
             toast.success('¡Riego registrado de manera exitosa!');
             //Perimite refresar la tabla con los nuevos datos registrados
-            await buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+            buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+            borrarData()
         } catch (error) {
             console.log(error)
         }
@@ -92,16 +118,19 @@ const Riesgos = () => {
     return (
         <div className='riesgo-container'>
             <ToastContainer />
-            <div className='btn-flot'>
-                <Button variant="outlined" onClick={() => { registrar() }}>
-                    Generar nuevo riesgo
-                </Button>
-            </div>
-
+            
             <div className='riesgo-desplegable'>
                 <div className='B-riesgot'>
-                    <h2>Riesgos</h2>
-                    <p>"¡Bienvenido al apartado de Control de Riesgos de nuestra página web!
+                    <div className='head-title'>
+                        <h2>Riesgos</h2>
+                        <div className='btn-flot'>
+                            <Button variant="outlined" onClick={() => { registrar() }}>
+                                Generar nuevo riesgo
+                            </Button>
+                        </div>
+                    </div>
+
+                    <p>"¡Bienvenido, al apartado de Control de Riesgos de nuestra página web!
                         Aquí encontrarás las herramientas y recursos necesarios para identificar,
                         evaluar, mitigar y gestionar riesgos en tus proyectos, negocios o
                         actividades cotidianas. Nuestra plataforma te brinda la capacidad
@@ -130,23 +159,18 @@ const Riesgos = () => {
                 <Tabla objriesgos={datariesgos} />
             </div>
 
-
-
             <section className="F">
-
                 {modalVisible && (
                     <div className="modalBldm">
                         <Formularior
                             objrSetriesgos={setDatariesgos}
                             registroRiesgo={registroRiesgo}
                             closeBmodal={setModalVisible}
+                            borrador={borrarData}
                         />
                     </div>
                 )}
-
-
             </section>
-
 
         </div>
     );
