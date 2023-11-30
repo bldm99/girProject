@@ -28,7 +28,7 @@
     padding: 10px 20px;
     font-size: 18px;
     border-radius: 10px;
-    background-color: #FFA500;
+    background-color: #000045;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -37,7 +37,7 @@
 }
 
 .process-create-button:hover {
-    background-color: #FF8C00;
+    background-color: #000045;
 }
 
 .process-description {
@@ -82,8 +82,10 @@
 }
 
 .process-table th {
-    background-color: #FFA500;
+    background-color: #000045;
     color: #fff;
+    position: sticky;
+    top: 0;
 }
 
 .process-table tr:nth-child(even) {
