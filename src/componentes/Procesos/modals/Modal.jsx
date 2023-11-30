@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Modal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeleteLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
     const [risks, setRisks] = useState([]);
@@ -14,8 +16,9 @@ const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
     useEffect(() => {
         if (data) {
             setRisks(data);
+            console.log('Se selecciono los siguientes riesgos', selectedRisks)
         }
-    }, [data]);
+    }, [data, selectedRisks]);
 
     const handleRiskClick = (risk) => {
         setSelectedRisks([...selectedRisks, risk]);
@@ -40,6 +43,12 @@ const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
         setSelectedRisks([]);
         onSubmit(proceso ? proceso._id : null, data);
         onClose();
+    };
+
+    const handleDelete = (index) => {
+        const updateSelectedRisks = [...selectedRisks];
+        updateSelectedRisks.splice(index, 1);
+        setSelectedRisks(updateSelectedRisks);
     };
 
 
@@ -134,12 +143,16 @@ const Modal = ({ isOpen, onClose, data, onSubmit, _idUser, proceso }) => {
                                         <thead>
                                             <tr>
                                                 <th>Descripción del Riesgo</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {selectedRisks.map((risk, index) => (
-                                                <tr key={risk._id}>
+                                                <tr key={index}>
                                                     <td>{risk.nombre}</td>
+                                                    <td className="delete-icon">
+                                                        <FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(index)} />
+                                                    </td>
                                                 </tr>
                                             ))}
                                         </tbody>

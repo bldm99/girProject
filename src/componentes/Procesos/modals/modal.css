@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
 }
 
 .modal {
@@ -24,12 +25,15 @@
 }
 
 .modal-title {
-    background-color: #FFA500;
+    background-color: #000045;
     padding: 10px;
     border-radius: 10px 10px 0 0;
     text-align: center;
     margin: 0;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .modal-content {
@@ -78,7 +82,7 @@
 
 .close-button,
 .save-button {
-    background: #FFA500;
+    background: #000045;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -90,7 +94,7 @@
 
 .close-button:hover,
 .save-button:hover {
-    background: #FF8C00;
+    background: #000045;
 }
 
 .risk-section,
@@ -147,7 +151,7 @@
 .selected-risks table thead {
     position: sticky;
     top: 0;
-    background-color: #FFA500;
+    background-color: #000045;
     z-index: 1;
 }
 
@@ -161,7 +165,7 @@
 }
 
 .selected-risks th {
-    background-color: #FFA500;
+    background-color: #000045;
     color: #fff;
 }
 
@@ -174,7 +178,7 @@
     padding: 0;
     position: absolute;
     background-color: #fff;
-    border: 1px solid #FF8C00;
+    border: 1px solid #000045;
     max-height: 150px;
     overflow-y: auto;
     width: calc(90%);
@@ -191,4 +195,12 @@
 
 .risk-section ul.search-results li:hover {
     background-color: #f9f9f9;
+}
+
+.selected-risks .selected-risks-table-container .delete-icon {
+    text-align: right;
+}
+
+.delete-icon svg {
+    color: red;
 }
