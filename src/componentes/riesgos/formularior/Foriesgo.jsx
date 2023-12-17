@@ -20,7 +20,7 @@ const Foriesgo = (props) => {
 
     const FormData = useContext(NombreContext)
 
-    const { impacto_desc, setImpacto_desc, probabilidad_desc, setProbabilidad_desc ,causaSeleccionados, controlSeleccionados  } = FormData
+    const { impacto_desc, setImpacto_desc, probabilidad_desc, setProbabilidad_desc, causaSeleccionados, controlSeleccionados } = FormData
     const { registroRiesgo } = props
 
 
@@ -90,8 +90,11 @@ const Foriesgo = (props) => {
             riesgo = "Extremo"
         }
 
-        const causasSinId = causaSeleccionados.map(({ _id, ...resto }) => resto);
-        const controlesSinId = controlSeleccionados.map(({ _id, ...resto }) => resto);
+        //const causasSinId = causaSeleccionados.map(({ _id, ...resto }) => resto);
+        //const controlesSinId = controlSeleccionados.map(({ _id, ...resto }) => resto);
+        const causasSinId = Array.isArray(causaSeleccionados) ? causaSeleccionados.map(({ _id, ...resto }) => resto) : [];
+        const controlesSinId = Array.isArray(controlSeleccionados) ? controlSeleccionados.map(({ _id, ...resto }) => resto) : [];
+
 
         try {
             let valoresForm = {
