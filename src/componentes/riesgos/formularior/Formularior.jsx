@@ -15,6 +15,8 @@ import * as Datariesgo from '../../../utils/Datariesgo'
 
 import Foriesgo from './Foriesgo';
 import Formacroproceso from './Formacroproceso';
+import Valorescausa from './Valorescausa';
+import Valorescontrol from './Valorescontrol';
 
 
 
@@ -46,10 +48,20 @@ const Formularior = (props) => {
     const BuscarMacroprocesosx  = Datariesgo.BuscarMacroprocesosx
     const [macroproceso , setMacroproceso] = useState([])
 
+    //Data causas
+    const BuscarCausasx  = Datariesgo.BuscarCausasx
+    const [causa , setCausa] = useState([])
+
+    //Data controles
+    const BuscarControlesx  = Datariesgo.BuscarControlesx
+    const [control , setControl] = useState([])
+
     useEffect(() => {
         const obtenerdata = async () => {
             try {
                 await BuscarMacroprocesosx("6531d08612ec096c58717b97", setMacroproceso)
+                await BuscarCausasx("6531d08612ec096c58717b97", setCausa)
+                await BuscarControlesx("6531d08612ec096c58717b97", setControl)
             } catch (error) {
                 console.log(error)
             }
@@ -57,11 +69,6 @@ const Formularior = (props) => {
         obtenerdata()
     }, []);
     
-
-
-
-
-
 
 
     return (
@@ -82,6 +89,8 @@ const Formularior = (props) => {
                                 </li>
                                 <li onClick={() => setComponente(<Formacroproceso macroproceso={macroproceso} />)}>Asignar a Macroproceso</li>
                                 <li>Asignar a Proceso</li>
+                                <li onClick={() => setComponente(<Valorescausa causa={causa} />)} >Asignar Causa</li>
+                                <li onClick={() => setComponente(<Valorescontrol control={control} />)} >Asignar Control</li>
                             </ul>
                         </div>
 

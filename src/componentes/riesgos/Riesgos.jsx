@@ -19,8 +19,9 @@ import { NombreContext } from '../../utils/Context';
 const Riesgos = (props) => {
 
     const FormData = useContext(NombreContext)
-    const { macroSeleccionados, borrarData } = FormData
-    console.log(macroSeleccionados)
+    const { macroSeleccionados, borrarData , causaSeleccionados } = FormData
+    //console.log(macroSeleccionados)
+    console.log(causaSeleccionados)
 
 
 
@@ -80,6 +81,10 @@ const Riesgos = (props) => {
 
     //efectuar registro de nuevo riesgo
     const registroRiesgo = async (dato) => {
+
+        //const causasSinId = causaSeleccionados.map(({ _id, ...resto }) => resto);
+        console.log(dato.r_controles)
+
         try {
             await postRiesgos(
                 dato.idusuario,
@@ -92,7 +97,10 @@ const Riesgos = (props) => {
                 dato.probabilidad_porc,
                 dato.calificacion,
                 dato.riesgo,
-                dato.proceso_asignado
+                dato.proceso_asignado,
+                dato.r_causas,
+                dato.r_controles
+                
             )
 
             const { idusuario, ...datoSinIdUsuario } = dato;

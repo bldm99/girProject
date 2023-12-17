@@ -20,7 +20,7 @@ const Foriesgo = (props) => {
 
     const FormData = useContext(NombreContext)
 
-    const { impacto_desc, setImpacto_desc, probabilidad_desc, setProbabilidad_desc } = FormData
+    const { impacto_desc, setImpacto_desc, probabilidad_desc, setProbabilidad_desc ,causaSeleccionados, controlSeleccionados  } = FormData
     const { registroRiesgo } = props
 
 
@@ -90,6 +90,9 @@ const Foriesgo = (props) => {
             riesgo = "Extremo"
         }
 
+        const causasSinId = causaSeleccionados.map(({ _id, ...resto }) => resto);
+        const controlesSinId = controlSeleccionados.map(({ _id, ...resto }) => resto);
+
         try {
             let valoresForm = {
                 idusuario: "6531d08612ec096c58717b97",
@@ -102,7 +105,9 @@ const Foriesgo = (props) => {
                 probabilidad_porc,
                 calificacion: calificacion.toString(),
                 riesgo,
-                proceso_asignado: "En espera"
+                proceso_asignado: "En espera",
+                r_causas: causasSinId,
+                r_controles: controlesSinId
             }
             registroRiesgo(valoresForm)
 
@@ -113,6 +118,7 @@ const Foriesgo = (props) => {
 
 
     }
+
 
 
     const ColorButton = Botones.ColorButton

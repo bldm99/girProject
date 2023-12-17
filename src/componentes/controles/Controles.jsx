@@ -1,23 +1,21 @@
-import React, { useState, useEffect, useContext } from 'react';
-import './causas.css'
+import React, { useState, useEffect, useContext } from 'react'
+import './controles.css'
 
 import * as Datariesgo from '../../utils/Datariesgo'
 import { NombreContext } from '../../utils/Context';
-import Formularioc from './formularioc/Formularioc';
 
 //Toast aviso emergente
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Formulariocontrol from './formulariocontrol/Formulariocontrol';
 
+export const Controles = () => {
 
-const Causas = () => {
-
-    const postCausas = Datariesgo.postCausas
-    const pushRiesgocausa = Datariesgo.pushRiesgocausa
-
+    const postControles = Datariesgo.postControles
+    const pushRiesgocontrol = Datariesgo.pushRiesgocontrol
 
     const FormData = useContext(NombreContext)
-    const { riesgoSeleccionados ,borrarDatacausa } = FormData
+    const { riesgoSeleccionados ,borrarDatacontrol } = FormData
 
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -25,11 +23,12 @@ const Causas = () => {
         setModalVisible(true);
     };
     const handleOutsideClick = (event) => {
-        if (event.target.classList.contains("modal-causas-Bldm")) {
+        if (event.target.classList.contains("modal-controles-Bldm")) {
             setModalVisible(false);
-            borrarDatacausa()
+            borrarDatacontrol()
         }
     };
+
     useEffect(() => {
         document.addEventListener("click", handleOutsideClick);
 
@@ -39,26 +38,29 @@ const Causas = () => {
         };
     }, []);
 
-    //efectuar registro de una nueva causa y tambien poder registrala
+    
+
+    //efectuar registro de un nuevo control y tambien poder registrala
     //dentro de varios riesgos
-    const registroCausa = async (dato) => {
+    const registroControl = async (dato) => {
         try {
-            await postCausas(
+            await postControles(
                 dato.idusuario,
                 dato.nombre,
-                dato.categoria,
+                dato.complejidad,
+                dato.tipo,
                 dato.descripcion,
             )
 
             const { idusuario, ...datoSinIdUsuario } = dato;
             //permite traernos todo los datos de las causas pero sin el id del usuario
             //ya que no lo nesecitamos
-            const nuevasCausas = [
+            const nuevasControles = [
                 datoSinIdUsuario
             ];
 
             for (let i = 0; i < riesgoSeleccionados.length; i++) {
-                await pushRiesgocausa(dato.idusuario, riesgoSeleccionados[i], nuevasCausas)
+                await pushRiesgocontrol(dato.idusuario, riesgoSeleccionados[i], nuevasControles)
             }
 
             //Una vez registrado se cierra el modal
@@ -66,7 +68,7 @@ const Causas = () => {
             toast.success('¡Riego registrado de manera exitosa!');
             //Perimite refresar la tabla con los nuevos datos registrados
             //buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
-            borrarDatacausa()
+            borrarDatacontrol()
         } catch (error) {
             console.log(error)
         }
@@ -74,29 +76,30 @@ const Causas = () => {
 
 
 
+
     return (
-        <div className='causas'>
+        <div className='controles'>
             <ToastContainer />
-            <div className='causas-cabezera'>
+            <div className='controles-cabezera'>
                 <div>
-                    <h2>Causas y Consecuencias</h2>
+                    <h2>Controles o Mitigaciones de riesgo</h2>
                 </div>
                 <div>
-                    <button onClick={() => { registrar() }} >Crear causa y consecuencia</button>
+                    <button onClick={() => { registrar() }} >Crear Controles</button>
                 </div>
             </div>
-            <div className='causas-filtros'>
+            <div className='controles-filtros'>
                 Filtros
             </div>
 
             <section className="F">
                 {modalVisible && (
-                    <div className="modal-causas-Bldm">
-                        <Formularioc
-                            registroCausa={registroCausa}
+                    <div className="modal-controles-Bldm">
+                        <Formulariocontrol
+                            registroControl={registroControl}
                             closeBmodal={setModalVisible}
-                            borrador={borrarDatacausa}
-
+                            borrador={borrarDatacontrol}
+                            
                         />
                     </div>
                 )}
@@ -104,7 +107,5 @@ const Causas = () => {
 
 
         </div>
-    );
+    )
 }
-
-export default Causas;

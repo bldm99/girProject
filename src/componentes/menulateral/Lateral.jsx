@@ -11,6 +11,7 @@ import Proceso from '../Procesos/Proceso';
 import Dashboard from '../dashboard/Dashboard';
 import Reportes from '../reportes/Reportes';
 import Causas from '../causas_conse/Causas';
+import { Controles } from '../controles/Controles';
 
 
 
@@ -99,9 +100,9 @@ const Lateral = ({ cambio }) => {
                         Causas y Consecuencias
                     </li>
 
-                    <li id="clientes" onClick={() => cambio(<Inicio />)}>
+                    <li id="clientes" onClick={() => cambio(<Controles />)}>
                         <FontAwesomeIcon icon={faToolbox} className="icon" />
-                        Controles
+                        Controles y Mitigaciones
                     </li>
                     <li id="inicio" onClick={() => cambio(<Inicio />)}>
                         <FontAwesomeIcon icon={faCalendar} className="icon" />
