@@ -10,6 +10,7 @@ const Imputx = (props) => {
         actualizarvalor(event.target.value)
     }
 
+    //tipo es el nombre de la etiqueta perzonalizada
     const Customtag = tipo
 
     const mystyle = {
@@ -25,7 +26,7 @@ const Imputx = (props) => {
                 placeholder={xplaceholder}
                 required={obligatorio}
                 onChange={manejarCambio}
-                type={tipo}
+                type={'tipo'}
                 
                 
             />
