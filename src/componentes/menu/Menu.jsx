@@ -6,10 +6,20 @@ import './menu.css';
 
 import logomenu from '../../assets/react.svg';
 import logofinal from '../../assets/logfinal.png';
+import * as Datatest from "../../pruebas/Datatest"
 
 const Menu = () => {
     // Supongamos que tienes el nombre de usuario en una variable, por ejemplo:
     const username = "Hola , User test";
+
+    
+    const cerrarsesion = async () => {
+        try {
+            await Datatest.Logout()
+        } catch (error) {
+            console.log(error)
+        } 
+    }
 
     return (
         <section className="menu">
@@ -53,8 +63,9 @@ const Menu = () => {
                         </li>
 
                         <li className="menu__list__item itm4">
-                            <Link to="/configuracion">
+                            <Link to="/configuracion" onClick={cerrarsesion}>
                                 <FaCog />
+                
                             </Link>
                         </li>
                     </ul>
