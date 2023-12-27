@@ -5,9 +5,6 @@ const URLdesrrolloLocal = "http://localhost:3000/"
 
 const URLdesrrollo = "https://girapi-dev-prxd.4.us-1.fl0.io/"
 
-
-
-
 export const Loginr = async (u_email, u_password , navigate) => {
     try {
         const res = await axios.post(`${URLdesrrollo}logingir`,
@@ -20,8 +17,8 @@ export const Loginr = async (u_email, u_password , navigate) => {
             }
         );
         //const { token } = res.data
-        //navigate("/");
-        console.log(res.data)
+        navigate("/");
+        //console.log(res.data)
     } catch (error) {
         console.log(error)
     }
