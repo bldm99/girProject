@@ -2,7 +2,9 @@
 import axios from "axios";
 const URLdesrrolloLocal = "http://localhost:3000/"
 
-const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
+//const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
+
+const URLdesrrollo = "https://490fb1df-9627-4ae2-9252-7a7ddbeb5470-00-3j4e9qkfg6jac.picard.replit.dev/"
 
 const net = "http://localhost:5251/prueba/listar"
 
