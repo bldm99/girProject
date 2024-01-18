@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 //const URLdesarrollo = "https://girapi.bladimirchipana.repl.co/";
-const   URLdesarrollo = "http://localhost:3000/"
+const URLdesarrollo = "https://490fb1df-9627-4ae2-9252-7a7ddbeb5470-00-3j4e9qkfg6jac.picard.replit.dev/"
+//const   URLdesarrollo = "http://localhost:3000/"
 
 export const getProcesos = async (idUsuario) => {
     try {
