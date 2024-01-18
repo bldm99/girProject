@@ -49,12 +49,12 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route>
+        {/*<Route>
           <Route path="/*" element={<><Menu /><Cuerpo /></>} />
-        </Route>
-        {/*<Route element={<PrivateWrapperGir />} >
+        </Route>*/}
+        <Route element={<PrivateWrapperGir />} >
           <Route path="/*" element={<><Menu /><Cuerpo /></>} />
-      </Route>*/}
+      </Route>
 
 
         <Route>
