@@ -1,13 +1,10 @@
 .cuerpo {
     padding-top: 76px;
-    background: orange;
-    background-color: #f1f1f1;
-    
+    /*background: orange;*/
+    /*background: linear-gradient(to bottom, #02040e, #111628);*/
     display: grid;
     grid-template-columns: 18% 82%;
     /*grid-template-columns: repeat(2, 70% 30%);*/
-
-
 }
 
 .cuerpo .lado {
@@ -16,8 +13,7 @@
 }
 
 .cuerpo .componentes {
-    background-color: #e7e7e7;
-    
+    /*background-color: #e7e7e7;*/
     position: relative;
 }
 
@@ -33,7 +29,6 @@
 @media (max-width: 768px) {
     .cuerpo {
         padding-top: 76px;
-        background: orange;
         display: grid;
         grid-template-columns: 100%;
 
@@ -41,8 +36,5 @@
     .cuerpo .fix {
         display: flex;
     }
-
-    
-
 }
 

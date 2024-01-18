@@ -1,14 +1,19 @@
 .formularior {
     font-family: 'Poppins', sans-serif;
-    margin: 80px 0;
+    /*margin: 80px 0;*/
+    z-index: 3;
     width: 70%;
     position: relative;
     overflow: hidden;
     font-size: calc(1rem * .9);
-    position: relative;
+    height: 90%;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
 }
 
-.formularior .box-for-cont .for-title {
+.formularior .for-title {
     background: #c41e26;
     color: white;
     width: 100%;
@@ -17,47 +22,46 @@
     box-sizing: border-box;
     font-weight: bold;
     text-transform: uppercase;
-    background: #000016;
-    /*background: #edb000;*/
-    background: #05019e;
+    /*background: #05019e;*/
+    background: #172026;
+    color: white;
 }
 
 
 
-.formularior .box-for-cont .box-for {
+.formularior  .box-for {
     display: grid;
-    background: white;
+    background: #f5f5f7;
     color: #666666;
-    grid-template-columns: 20% 80%;
-   
-
+    grid-template-columns: 20% 79%;
     padding: 8px;
+    gap:1% ;
     box-sizing: border-box;
-   
-    
+    height: 100%;
 }
-
-
 
 
 .box-for p,
 .box-for h2 {
-
     width: 80%;
     margin: 0;
     box-sizing: border-box;
 }
 
 
-
 .box-for .riesgo-descripcion {
+    background: #292942;
+    padding: 2px 4px;
+    border-radius: 8px;
+    height: 100%;
+    box-sizing: border-box;
 
-    
-   
 }
+
 .box-for .riesgo-descripcion .rli {
-    color: white; 
+    color: white;
 }
+
 .box-for .riesgo-descripcion .rli ul {
     list-style: none;
     margin: 0;
@@ -67,38 +71,27 @@
     gap: 1px;
     height: 100%;
 }
+
 .box-for .riesgo-descripcion .rli ul li {
-    background: #05019e;
+    background: #292942;
     width: 90%;
     border-radius: 2px;
     padding: 4px 2px;
     cursor: pointer;
 }
+
 .box-for .riesgo-descripcion .rli ul li:hover {
-    background: #000045 ;
-  
+    background: #04BFAD;
+}
+
+.box-for .for-componentes {
+    background: white;
+    padding: 4px;
+    border-radius: 8px;
 }
 
 
-
-/*.box-for .riesgo-datos {
-   background: white;
-}
-.riesgo-datos .text-titulo {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-.riesgo-datos .text-titulo .opcion-riesgo {
-    display: flex;
-    gap: 10px;
-    
-}*/
-
-
-
-
-.formularior .box-for-cont .for-save {
+.formularior .for-save {
     background: white;
     width: 100%;
     display: flex;
@@ -111,18 +104,20 @@
     padding: 5px 0px;
     flex-wrap: wrap;
 }
-.formularior .box-for-cont .for-botones {
+
+.formularior  .for-botones {
     width: 98%;
     display: flex;
     justify-content: end;
     gap: 10px;
 }
 
-.formularior .box-for-cont .for-save {
-    
+.formularior  .for-save {
+    background: #f5f5f7;
 }
-.formularior .box-for-cont .for-save button {
-    background: black;
+
+.formularior  .for-save button {
+    background: #172026;
     color: white;
     border: none;
     padding: 0.5rem;
@@ -138,9 +133,8 @@
 
 
 
-.formularior .box-for-cont .for-save button:hover {
+.formularior  .for-save button:hover {
     background-color: rgb(196, 7, 7);
-    
     transform: scale(1.1);
 }
 

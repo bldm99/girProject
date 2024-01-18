@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaQuestionCircle, FaBell, FaCog } from 'react-icons/fa';
 import { BsFillPersonPlusFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import './menu.css';
 
 import logomenu from '../../assets/react.svg';
@@ -9,13 +10,16 @@ import logofinal from '../../assets/logfinal.png';
 import * as Datatest from "../../pruebas/Datatest"
 
 const Menu = () => {
+
+    const navigate = useNavigate();
+
     // Supongamos que tienes el nombre de usuario en una variable, por ejemplo:
     const username = "Hola , User test";
 
     
     const cerrarsesion = async () => {
         try {
-            await Datatest.Logout()
+            await Datatest.Logout(navigate)
         } catch (error) {
             console.log(error)
         } 
@@ -27,10 +31,10 @@ const Menu = () => {
 
             <header>
                 <img src={logofinal} alt="" />
-                <h1 className="titulo-empresa">
+                <h3 className="titulo-empresa">
                     <span className="company-initial">G</span>IR
-                </h1>
-                <h3> - Gestión Integrada de Riesgos</h3>
+                </h3>
+                <h4> - Gestión Integrada de Riesgos</h4>
             </header>
 
 

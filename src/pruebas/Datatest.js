@@ -51,14 +51,15 @@ export const Protegido = async () => {
 }
 
 
-export const Logout = async () => {
+export const Logout = async (navigate) => {
     try {
         const res = await axios.get(`${URLdesrrolloLocal}logout`,
             {
-                withCredentials: true // Habilita el envío de cookies
+                withCredentials: true // Habilita el envío de cookiess
             }
         );
         console.log(res.data)
+        navigate("/login");
     } catch (error) {
         console.log(error)
     }

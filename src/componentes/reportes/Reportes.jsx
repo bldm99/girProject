@@ -9,12 +9,13 @@ import { MapaContext } from "../../utils/Context";
 import * as Datariesgo from "../../utils/Datariesgo"
 
 import { MdGetApp } from "react-icons/md";
+import Detallex from "./detallex/Detallex";
 const Reportes = (props) => {
 
     const MapaData = useContext(MapaContext)
 
     const BuscarMacroriesgo = Datariesgo.BuscarMacroriesgo
-    const [macroriesgoz , setMacroriesgoz] = useState([])
+    //const [macroriesgoz , setMacroriesgoz] = useState([]) solo de prueba
 
     const { datoscuadrante, setDatoscuadrante } = MapaData
 
@@ -22,20 +23,43 @@ const Reportes = (props) => {
 
     const [xydatomapa, setXydatomapa] = useState([almacenriesgos])
 
+    const [unicoriesgo, setUnicoriesgo] = useState([])
+
+
+    //Formulario de registro modal
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const verdetalle = () => {
+        setModalVisible(true);
+    };
+
+    const handleOutsideClick = (event) => {
+        if (event.target.classList.contains("modalBldm")) {
+            setModalVisible(false);
+            //borrarData()
+        }
+    };
+
 
     useEffect(() => {
+        document.addEventListener("click", handleOutsideClick);
         const dato = async () => {
             setXydatomapa(almacenriesgos)
-            await BuscarMacroriesgo("6531d08612ec096c58717b97" ,"653988ea0ed021c017bf0247",setMacroriesgoz)
-            
+            //await BuscarMacroriesgo("6531d08612ec096c58717b97" ,"653988ea0ed021c017bf0247",setMacroriesgoz) prueba
+
         }
         dato()
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
 
     }, []);
 
     const [newmacros, setNewmacros] = useState([])
 
-    console.log(macroriesgoz)
+    //console.log(macroriesgoz) prueba
+    //console.log(xydatomapa)
+    //console.log(almacenmacroriesgos)
 
 
 
@@ -66,7 +90,6 @@ const Reportes = (props) => {
                 <div className="reporte-filtro-fecha">
                     <div className="f1">
                         <input type="date" id="fecha" name="fecha"></input>
-
                     </div>
                     <div className="f2">
                         <button>Hoy</button>
@@ -113,9 +136,9 @@ const Reportes = (props) => {
                             <div className="table-map-procesos" style={{ maxHeight: '100px', overflowY: 'auto' }}>
                                 <ul>
                                     {newmacros.map((item, index) => (
-                                        <li onClick={()=>{BuscarMacroriesgo("6531d08612ec096c58717b97" ,item._id,setXydatomapa)}} key={item._id}> 
+                                        <li onClick={() => { BuscarMacroriesgo("6531d08612ec096c58717b97", item._id, setXydatomapa) }} key={item._id}>
                                             {item.m_nombre}
-                                           
+
                                         </li>
                                     ))}
                                 </ul>
@@ -129,9 +152,10 @@ const Reportes = (props) => {
                                             <th>Riesgo</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         {datoscuadrante.map((item, index) => (
-                                            <tr key={item._id}>
+                                            <tr key={item._id} onClick={() => { verdetalle(); setUnicoriesgo(item) }}>
                                                 <td>{item.nombre}</td>
                                                 {/*<td>{item.impacto_desc}</td>
                                         <td>{item.probabilidad_desc}</td>*/}
@@ -142,6 +166,7 @@ const Reportes = (props) => {
                                             </tr>
                                         ))}
                                     </tbody>
+
                                 </table>
 
                             </div>
@@ -150,12 +175,20 @@ const Reportes = (props) => {
                         </div>
 
                     </div>
-
-
-
-
                 </div>
             </div>
+
+            <section >
+                {modalVisible && (
+                    <div className="modalBldm">
+                        <Detallex
+                            unicoriesgo={unicoriesgo}
+                        />
+                    </div>
+                )}
+            </section>
+
+
         </div>
     );
 }

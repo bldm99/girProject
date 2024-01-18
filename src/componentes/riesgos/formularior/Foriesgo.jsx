@@ -149,7 +149,7 @@ const Foriesgo = (props) => {
             </div>
 
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Impacto de riesgo</strong></label>
+                <label> <strong>Impacto de riesgo</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={impacto_desc} onChange={manejarCambio} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Consecuencia</option>
@@ -164,7 +164,7 @@ const Foriesgo = (props) => {
             </div>
 
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Cafilicar frecuencia de riesgo</strong></label>
+                <label > <strong>Cafilicar frecuencia de riesgo</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={probabilidad_desc} onChange={manejarCambio2} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Probabilidad</option>

@@ -1,6 +1,9 @@
 .riesgo-container {
-    background: white;
     
+    padding: 1% 1%;
+    background-color: #f3f5f7;
+    background: linear-gradient(to bottom, #02040e, #111628);
+ 
 }
 
 .riesgo-container .btn-flot {
@@ -28,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 2;
   }
 
 .riesgo-container .p{
@@ -36,21 +39,24 @@
 }
 
 
-
-
-
-
 .riesgo-container .riesgo-desplegable .B-riesgot .head-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0px 10px;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #111628, #02040e);
+    border-radius: 8px;
+}
+.head-title h2{
+    color: #dcdcdc;
+    text-transform: uppercase;
 }
 
 
 
 .riesgo-container .riesgo-desplegable p {
-    color: #333;
-    /* Gris oscuro */
+    color: #dcdcdc;
 }
 
 .riesgo-desplegable .btn-mas {

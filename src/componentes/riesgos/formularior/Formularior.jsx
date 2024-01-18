@@ -75,7 +75,6 @@ const Formularior = (props) => {
 
         <div className='formularior'>
 
-            <div className='box-for-cont'>
                 <div className='for-title'>
                     Generar nuevo riesgo
                 </div>
@@ -101,19 +100,13 @@ const Formularior = (props) => {
                             componente
                         }
                     </div>
-
-
-
                 </div>
-
 
                 <div className='for-save'>
                     <div className='for-botones'>
                         <button onClick={() => { closeBmodal(false); borrador() }} >Cancelar</button>
                     </div>
                 </div>
-
-            </div>
 
         </div>
 

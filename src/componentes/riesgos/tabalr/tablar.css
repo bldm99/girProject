@@ -13,7 +13,10 @@
 }
 
 
-.tablar-cont .btn-search {}
+.tablar-cont .btn-search {
+    background: white;
+    border-radius: 10px;
+}
 
 .tablar-cont .btn-filtros {
     display: flex;
@@ -22,7 +25,7 @@
 }
 
 /* CSS */
-.fixed-headers  {
+.fixed-headers {
     width: 500px;
     position: sticky;
     top: 0;
@@ -30,13 +33,25 @@
 }
 
 .header-background {
-    background-color: #0d1029; /* Cambia esto al color que desees */
-    color: white;
-  }
-
-  .fixed-headers strong {
+    background-color: #0d1029;
+    /* Cambia esto al color que desees */
     color: white;
 }
+
+.fixed-headers strong {
+    color: white;
+}
+
+
+.resul-table {
+    /*border: 1px solid rgba(192, 187, 187, 0.5);*/
+    /*background-color: white;*/
+
+}
+
+
+
+
 
 
 

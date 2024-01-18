@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const URLdesarrollo = "https://girapi.bladimirchipana.repl.co/";
+//const URLdesarrollo = "https://girapi.bladimirchipana.repl.co/";
+const   URLdesarrollo = "http://localhost:3000/"
 
 export const getProcesos = async (idUsuario) => {
     try {

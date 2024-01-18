@@ -19,7 +19,7 @@ import { NombreContext } from '../../utils/Context';
 const Riesgos = (props) => {
 
     const FormData = useContext(NombreContext)
-    const { macroSeleccionados, borrarData , causaSeleccionados } = FormData
+    const { macroSeleccionados, borrarData, causaSeleccionados } = FormData
     //console.log(macroSeleccionados)
     console.log(causaSeleccionados)
 
@@ -53,6 +53,9 @@ const Riesgos = (props) => {
     const registrar = () => {
         setModalVisible(true);
     };
+    const recargartabla = () => {
+        buscarRiesgos("6531d08612ec096c58717b97", setDatariesgos)
+    };
 
     const handleOutsideClick = (event) => {
         if (event.target.classList.contains("modalBldm")) {
@@ -81,12 +84,10 @@ const Riesgos = (props) => {
 
     //efectuar registro de nuevo riesgo
     const registroRiesgo = async (dato) => {
-
         //const causasSinId = causaSeleccionados.map(({ _id, ...resto }) => resto);
         console.log(dato.r_controles)
-
         try {
-            await postRiesgos(
+            const obtenerid = await postRiesgos(
                 dato.idusuario,
                 dato.nombre,
                 dato.impacto_desc,
@@ -100,13 +101,18 @@ const Riesgos = (props) => {
                 dato.proceso_asignado,
                 dato.r_causas,
                 dato.r_controles
-                
             )
+            //se necesita que el postRiesgos sevuelve un id para poder usar en pushMacro
+            //console.log(obtenerid)
+
 
             const { idusuario, ...datoSinIdUsuario } = dato;
+            datoSinIdUsuario._id = obtenerid;
+
             const nuevosRiesgos = [
                 datoSinIdUsuario
             ];
+
 
             for (let i = 0; i < macroSeleccionados.length; i++) {
                 await pushMacro(dato.idusuario, macroSeleccionados[i], nuevosRiesgos)
@@ -123,10 +129,14 @@ const Riesgos = (props) => {
         }
     }
 
+
+
+
+
     return (
         <div className='riesgo-container'>
             <ToastContainer />
-            
+
             <div className='riesgo-desplegable'>
                 <div className='B-riesgot'>
                     <div className='head-title'>
@@ -164,7 +174,7 @@ const Riesgos = (props) => {
             </div>
 
             <div>
-                <Tabla objriesgos={datariesgos} />
+                <Tabla objriesgos={datariesgos} recargartabla={recargartabla} />
             </div>
 
             <section className="F">

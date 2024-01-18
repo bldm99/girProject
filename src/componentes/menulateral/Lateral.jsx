@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import './lateral.css';
 
@@ -30,8 +31,14 @@ import {
 
 import * as Datariesgo from '../../utils/Datariesgo'
 
+import * as Authdtariesgo from '../../pruebas/Datatest'
+
 
 const Lateral = ({ cambio }) => {
+
+    const navigate = useNavigate();
+
+    const cerrarsesion = Authdtariesgo.Logout
 
     const buscarRiesgos = Datariesgo.buscarRiesgos
     const [xriesgos, setXriesgos] = useState([])
@@ -39,6 +46,7 @@ const Lateral = ({ cambio }) => {
     const buscarMacros= Datariesgo.BuscarMacroprocesosx
     const [allmacros, setAllmacros] = useState([])
 
+    const allriesgosmacro = Datariesgo.allriesgosmacro
     const buscarRiesgosmacro = Datariesgo.BuscarMacroprocesosnet
     const [macroriesgos, setMacroriesgos] = useState([])
 
@@ -48,7 +56,9 @@ const Lateral = ({ cambio }) => {
 
                 //Revison ya que al renderizar rapido rapido solo carga uno
                 await buscarRiesgos("6531d08612ec096c58717b97", setXriesgos)
-                await buscarRiesgosmacro("6531d08612ec096c58717b97", setMacroriesgos)
+
+                await allriesgosmacro("6531d08612ec096c58717b97", setMacroriesgos)
+                //await buscarRiesgosmacro("6531d08612ec096c58717b97", setMacroriesgos)
                 await buscarMacros("6531d08612ec096c58717b97", setAllmacros)
             } catch (error) {
                 console.log(error)
@@ -134,11 +144,11 @@ const Lateral = ({ cambio }) => {
                         <FontAwesomeIcon icon={faFire} className="icon" />
                         Mapa de Calor
                     </li>
-                    <li id="configuracion" onClick={() => cambio(<Testcliente />)}>
+                    <li id="configuracion" >
                         <FontAwesomeIcon icon={faCog} className="icon" />
                         Configuración
                     </li>
-                    <li id="cerrar-sesion" onClick={() => { cerrarSesion2() }}>
+                    <li id="cerrar-sesion" onClick={() => { cerrarsesion(navigate) }}>
                         <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
                         Cerrar Sesión
                     </li>

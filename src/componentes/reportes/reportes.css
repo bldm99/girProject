@@ -1,22 +1,41 @@
 .reportes {
   width: 100%;
-  /*background-color: red;*/
+  background: linear-gradient(to bottom, #02040e, #111628);
   display: flex;
   justify-content: center;
+  padding: 1% 1%;
+  box-sizing: border-box;
 }
 
 .reportes .cuerpo-reportes {
   width: 98%;
-  background: #F9FAFB;
+  /*background: #F9FAFB;*/
+}
 
+.reportes .cuerpo-reportes .reporte-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  flex-wrap: wrap;
+  background: linear-gradient(to right, #111628, #02040e);
+  border-radius: 8px;
+}
+
+.reportes .cuerpo-reportes .reporte-titulo {
+  color: #dcdcdc;
+  text-transform: uppercase;
 }
 
 .reportes .reporte-filtro-fecha {
-
+  padding: 15px 0px;
+  margin-top: 20px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  
 }
 
 .reportes .reporte-filtro-fecha .f1 {}
@@ -38,11 +57,16 @@
   border: none;
   font-weight: bold;
   border-radius: 3px;
+  background-color: #04BFAD;
+  color: white;
 }
 
 .reportes .reporte-filtro-fecha .f2 button:first-child {
   background-color: black;
-  color: white;
+  color: #04BFAD;
+}
+.reportes .reporte-filtro-fecha .f3 {
+  color: #04BFAD;
 }
 
 /* Filtro colores*/
@@ -89,37 +113,48 @@
 .reportes .reporte-calor {
   display: flex;
   justify-content: space-between;
-  /*background: red;*/
+  box-sizing: border-box;
+  gap: 1%;
+  width: 100%; 
 }
-
-
 
 .reportes .reporte-calor .rmapx {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: greenyellow;*/
   width: 50%;
+  box-sizing: border-box;
+  background: #ffffff33;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 1% 1%;
 }
 
 
 .reportes .reporte-calor .map-general {
+  padding: 1% 1%;
+  margin-top: 20px;
   width: 50%;
   font-size: 14px;
   /*background-color: #0f5ead;*/
+  background: rgb(238, 228, 228);
+  background: white;
+  border-radius: 8px;
 }
 
 .reportes .reporte-calor .map-detalles .table-map-procesos ul li {
- 
   cursor: pointer;
 }
-.reportes .reporte-calor .map-detalles .map-save{
-  border: 1px solid rgb(7, 27, 90) ;
+
+.reportes .reporte-calor .map-detalles .map-save {
+  border: 1px solid rgb(7, 27, 90);
   width: 18%;
   text-align: center;
   border-radius: 5px;
 }
+
 .reportes .reporte-calor .map-detalles .map-ty {
   display: flex;
   gap: 10px;
@@ -131,19 +166,22 @@
   border-collapse: collapse;
   border-spacing: 0;
 }
-.table-map-headers{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background: white;
-    color: black;
-    font-weight: bolder;
-}
-.table-map-headers tr:last-child th {
-  border-bottom: 2px solid rgb(13, 3, 49); /* Establece el estilo y color de la línea de separación */
+
+.table-map-headers {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  background: white;
+  color: black;
+  font-weight: bolder;
 }
 
-.table-map-line{
+.table-map-headers tr:last-child th {
+  border-bottom: 2px solid rgb(13, 3, 49);
+  /* Establece el estilo y color de la línea de separación */
+}
+
+.table-map-line {
   width: 100%;
   background: rgb(104, 228, 104);
   padding: 5px;
@@ -151,7 +189,8 @@
 
 
 
-.table-map th, .table-map td {
+.table-map th,
+.table-map td {
   padding: 12px;
   text-align: left;
   white-space: nowrap;
@@ -163,7 +202,8 @@
   display: flex;
   justify-content: center;
 }
-.table-map .td-unico span{
+
+.table-map .td-unico span {
   text-align: center;
   width: 80%;
   border-radius: 5px;
@@ -176,3 +216,21 @@
   background-color: #f2f2f2;
 }
 
+
+@media (max-width: 940px) {
+
+
+  .reportes .reporte-calor {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reportes .reporte-calor .map-general {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {}

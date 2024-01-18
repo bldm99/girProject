@@ -37,8 +37,6 @@ const Formulariocontrol = (props) => {
     return (
 
         <div className='formularior'>
-
-            <div className='box-for-cont'>
                 <div className='for-title'>
                     Generar nuevo control
                 </div>
@@ -65,19 +63,13 @@ const Formulariocontrol = (props) => {
                         }
                     </div>
 
-
-
                 </div>
-
 
                 <div className='for-save'>
                     <div className='for-botones'>
                         <button onClick={() => { closeBmodal(false); borrador() }}  >Cancelar</button>
                     </div>
                 </div>
-
-            </div>
-
         </div>
 
     );

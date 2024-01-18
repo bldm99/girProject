@@ -65,7 +65,7 @@ const Forcausa = (props) => {
             </div>
 
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Tipo</strong></label>
+                <label> <strong>Tipo</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={tipoca} onChange={manejarCambio} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Causa o Consecuencia</option>
@@ -78,7 +78,7 @@ const Forcausa = (props) => {
                 </div>
             </div>
             <div className='text-titulo'>
-                <label htmlFor=""> <strong>Categoria</strong></label>
+                <label> <strong>Categoria</strong></label>
                 <div className="lista-opciones">
                     <select name="" id="" value={categoriaca} onChange={manejarCambio2} >
                         <option value="" disabled defaultValue="" hidden  >Selecionar Categoria</option>

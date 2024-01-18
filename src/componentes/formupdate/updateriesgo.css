@@ -1,38 +1,39 @@
-.forriesgo {
+.updateriesgo {
     background: white;
  }
- .forriesgo .text-titulo {
+ .updateriesgo .text-titulo {
      width: 100%;
      box-sizing: border-box;
      margin-bottom: 15px;
  }
- .forriesgo .text-titulo .opcion-riesgo {
+ .updateriesgo .text-titulo .opcion-riesgo {
      display: flex;
      gap: 10px;
      
  }
   
- .lista-opciones {
-    
-}
-
- .lista-opciones select{
+ 
+ .updateriesgo .lista-opciones select{
     width: 100%;
     padding: 10px;
     border: 1px solid grey;
-    /*outline-color: blueviolet; /*color de border al seleccionar input*/ 
+    outline-color: blueviolet; /*color de border al seleccionar input*/ 
     border-radius: 8px;   
-    color: #dcdcdc;
-    background: #343456;
+    color: aliceblue;
+    background: #393960;
 }
 
-.lista-opciones select .ry{
+.updateriesgo .lista-opciones select .ry{
     color: rgb(90, 89, 89);
     background: white;
 }
 
 
-.forriesgo button {
+
+
+
+
+.updateriesgo button {
     position: absolute;
     background: #172026;
     color: white;
@@ -52,7 +53,7 @@
 
 
 
-.forriesgo button:hover {
+.updateriesgo button:hover {
     background-color: #05019e;
     transform: scale(1.1);
 }

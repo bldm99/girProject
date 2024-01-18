@@ -1,9 +1,13 @@
 
 import axios from "axios";
-const URLdesrrolloLocal = "http://localhost:3000/"
+//Desrrollo Local
+//const URLdesrrolloLocal = "http://localhost:3000/"
+//const URLdesrrollo = "http://localhost:3000/"
+
 
 //const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
 
+//Desrrollo Poruccion
 const URLdesrrollo = "https://490fb1df-9627-4ae2-9252-7a7ddbeb5470-00-3j4e9qkfg6jac.picard.replit.dev/"
 
 const net = "http://localhost:5251/prueba/listar"
@@ -12,7 +16,7 @@ export const postRiesgos = async (_id, nombre, impacto_desc, impacto_num, impact
     probabilidad_desc, probabilidad_num, probabilidad_porc, calificacion, riesgo, proceso_asignado,
     r_causas , r_controles) => {
     try {
-        await axios.post(`${URLdesrrollo}registroriesgo`, {
+        const response = await axios.post(`${URLdesrrollo}registroriesgo`, {
             _id,
             nombre,
             impacto_desc,
@@ -27,6 +31,9 @@ export const postRiesgos = async (_id, nombre, impacto_desc, impacto_num, impact
             r_causas,
             r_controles 
         });
+        
+        return response.data
+
 
     } catch (error) {
         console.log(error)
@@ -74,7 +81,28 @@ export const buscarRiesgos = async (_id, xset) => {
     } catch (error) {
         console.log(error)
     }
+}
+export const updateRiesgox = async (_id, _idRiesgo , nombre, impacto_desc, impacto_num, impacto_porc,
+    probabilidad_desc, probabilidad_num, probabilidad_porc, calificacion, riesgo) => {
+    try {
+        const response = await axios.put(`${URLdesrrollo}registroriesgo`, {
+            _id,
+            _idRiesgo,
+            nombre,
+            impacto_desc,
+            impacto_num,
+            impacto_porc,
+            probabilidad_desc,
+            probabilidad_num,
+            probabilidad_porc,
+            calificacion,
+            riesgo
+        });
+        console.log(response.data);  
 
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const postMacroproceso = async (_id, m_nombre, m_tipo, m_descripcion, m_riesgos) => {
@@ -166,7 +194,7 @@ export const BuscarMacroriesgo = async (_id, macroprocesoId, xset) => {
     }
 }
 
-
+//Busca todos los riegos de todos los macroprocesos  con .net(elimina duplicados que pueda haber)
 export const BuscarMacroprocesosnet = async (_id, xset) => {
     try {
         const response = await axios.get(`${net}`, {
@@ -180,6 +208,26 @@ export const BuscarMacroprocesosnet = async (_id, xset) => {
         console.log(error)
     }
 }
+
+//Busca todos los riegos de todos los macroprocesos  con Express y node(elimina duplicados que pueda haber)
+export const allriesgosmacro = async (_id, xset) => {
+    try {
+        const response = await axios.get(`${URLdesrrollo}allriesgosmacro`, {
+            params: {
+                _id
+            }
+        });
+        xset(response.data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
+
 
 export const BuscarCausasx = async (_id, xset) => {
     try {

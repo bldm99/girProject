@@ -5,16 +5,16 @@
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    z-index: 4;
+    z-index: 2;
     padding: 0px 8px;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreado */
-    background-color: #000045;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Sombreado */
+    background-color: #05010a;  
 }
 
 .menu .titulo-empresa {
     font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
-    font-size: 24px; /* Ajusta el tamaño del texto */
+    font-size: 18px; /* Ajusta el tamaño del texto */
     text-transform: uppercase; /* Convierte el texto en mayúsculas */
     color: white; /* Color rojo personalizado */
     text-decoration: none; /* Elimina el subrayado */
@@ -81,5 +81,21 @@
     font-size: 14px;
     font-weight: bolder;
     
+}
+
+@media (max-width: 768px) {
+
+    .menu header h3 {
+        display: none;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .calor {
+        width: 65px;
+        height: 65px;
+
+    }
 }
 

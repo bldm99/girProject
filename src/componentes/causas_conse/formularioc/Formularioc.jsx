@@ -11,7 +11,7 @@ const Formularioc = (props) => {
     const { registroCausa, closeBmodal, borrador } = props
 
     const buscarRiesgosx = Datariesgo.buscarRiesgos
-    const [riesgo , setRiesgo] = useState([])
+    const [riesgo, setRiesgo] = useState([])
 
 
     const [componente, setComponente] = useState(
@@ -32,51 +32,47 @@ const Formularioc = (props) => {
         obtenerdata()
     }, []);
 
-    
+
 
     return (
 
-        <div className='formularior'>
+        <div className='formularior formulariorc '>
+            <div className='for-title'>
+                Generar nueva causa o consecuencia
+            </div>
+            <div className='box-for'>
+                <div className='riesgo-descripcion'>
+                    <h2>Opciones</h2>
+                    <div className='rli'>
+                        <ul>
+                            <li onClick={() => setComponente(<Forcausa registroCausa={registroCausa} />)} >
+                                Causas y consecuencia
+                            </li>
+                            <li onClick={() => setComponente(<Valoresriesgo riesgo={riesgo} />)} >
+                                Asignar a Riesgo
+                            </li>
 
-            <div className='box-for-cont'>
-                <div className='for-title'>
-                    Generar nueva causa o consecuencia
-                </div>
-                <div className='box-for'>
-                    <div className='riesgo-descripcion'>
-                        <h2>Opciones</h2>
-                        <div className='rli'>
-                            <ul>
-                                <li onClick={() => setComponente(<Forcausa registroCausa={registroCausa} />)} >
-                                    Causas y consecuencia
-                                </li>
-                                <li onClick={() => setComponente(<Valoresriesgo riesgo={riesgo} />)} >
-                                    Asignar a Riesgo
-                                </li>
-                                
-                            </ul>
-                        </div>
-
+                        </ul>
                     </div>
-
-                    <div className='for-componentes'>
-                        {
-                            componente
-                        }
-                    </div>
-
-
 
                 </div>
 
-
-                <div className='for-save'>
-                    <div className='for-botones'>
-                        <button onClick={() => { closeBmodal(false); borrador() }} >Cancelar</button>
-                    </div>
+                <div className='for-componentes'>
+                    {
+                        componente
+                    }
                 </div>
 
             </div>
+
+
+            <div className='for-save'>
+                <div className='for-botones'>
+                    <button onClick={() => { closeBmodal(false); borrador() }} >Cancelar</button>
+                </div>
+            </div>
+
+
 
         </div>
 

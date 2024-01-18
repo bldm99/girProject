@@ -4,10 +4,12 @@ import './causas.css'
 import * as Datariesgo from '../../utils/Datariesgo'
 import { NombreContext } from '../../utils/Context';
 import Formularioc from './formularioc/Formularioc';
+import Alltable from '../alltable/Alltable';
 
 //Toast aviso emergente
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Causas = () => {
@@ -17,9 +19,10 @@ const Causas = () => {
 
 
     const FormData = useContext(NombreContext)
-    const { riesgoSeleccionados ,borrarDatacausa } = FormData
+    const { riesgoSeleccionados, borrarDatacausa } = FormData
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [causas, setCausas] = useState([])
 
     const registrar = () => {
         setModalVisible(true);
@@ -32,12 +35,21 @@ const Causas = () => {
     };
     useEffect(() => {
         document.addEventListener("click", handleOutsideClick);
-
+        const obtenerdata = async () => {
+            try {
+                await Datariesgo.BuscarCausasx('6531d08612ec096c58717b97', setCausas)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        obtenerdata()
 
         return () => {
             document.removeEventListener("click", handleOutsideClick);
         };
     }, []);
+
+
 
     //efectuar registro de una nueva causa y tambien poder registrala
     //dentro de varios riesgos
@@ -73,6 +85,18 @@ const Causas = () => {
     }
 
 
+    const cabezeraTable = [
+        { "name": "Nombre" },
+        { "name": "Categoria" },
+        { "name": "Descripcion" }
+    ]
+    const propiedadesobj = [
+        { "propiedad": "nombre" },
+        { "propiedad": "categoria" },
+        { "propiedad": "descripcion" }
+    ]
+    const [unicausa, setUnicausa] = useState([])
+
 
     return (
         <div className='causas'>
@@ -85,8 +109,37 @@ const Causas = () => {
                     <button onClick={() => { registrar() }} >Crear causa y consecuencia</button>
                 </div>
             </div>
+
+            <div>
+                <p>
+                    En el apartado de "Causas y Consecuencias de Riesgos", se abordan tanto los factores
+                    que originan o contribuyen a la aparición de riesgos como las posibles ramificaciones
+                    derivadas de su materialización. En la sección de causas, se identifican y describen
+                    las fuentes internas y externas, eventos o condiciones que podrían dar lugar a
+                    riesgos en un proyecto, proceso o sistema.
+                </p>
+                <p>
+                    Por otro lado, en el área de consecuencias, se detallan los efectos potenciales en términos
+                    de impactos financieros, operativos, legales, reputacionales, entre otros. Clasificar
+                    estas consecuencias en gravedad y alcance permite una priorización informada de la
+                    gestión de riesgos y prepara para la adopción de medidas de respuesta ante diversos
+                    escenarios adversos.
+                </p>
+            </div>
+
             <div className='causas-filtros'>
                 Filtros
+            </div>
+
+            <div className='cont-table-causas'>
+                <Alltable
+                    cabezeraTable={cabezeraTable}
+                    valores={causas}
+                    propiedadesobj={propiedadesobj}
+
+                    idvalor={setUnicausa}
+
+                />
             </div>
 
             <section className="F">

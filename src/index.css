@@ -2,8 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background: rgb(255, 255, 255);
-
+  background: linear-gradient(to bottom, #02040e, #111628);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

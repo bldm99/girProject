@@ -7,13 +7,28 @@
   left: 0;
   width: 18%;
   height: 100%;
-  background-color: black;
   padding: 20px 8px;
   box-sizing: border-box;
-  z-index: 2;
-  color: white;
-  
+  /*z-index: 2;*/
+  color: #e8e8ec;
+  background: #0D0D0D;
+
 }
+
+.lateral .sub-lateral{
+  /*background-color: rgb(11, 48, 81);*/
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+.lateral .sub-lateral::-webkit-scrollbar {
+  width: 0.3em; /* Ancho de la barra de desplazamiento */
+}
+
+.lateral .sub-lateral::-webkit-scrollbar-thumb {
+  background-color: #383737;
+}
+
 
 .lateral ul {
   list-style-type: none;
@@ -27,16 +42,17 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   display: flex;
-
   padding: .5rem;
   align-items: center;
   box-sizing: border-box;
   margin: 0;
+  color: #dcdcdc;
+  text-transform: uppercase;
 }
 
 .lateral li:hover {
-  background-color: #d22630;
-  color: black;
+  background-color: #04BFAD;
+  color: rgb(255, 255, 255);
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -49,6 +65,7 @@
 
 .lateral .icon {
   margin-right: 10px;
+  
 }
 
 .lateral li a {
@@ -81,6 +98,7 @@
   left: 0;
   width: 100%;
   box-sizing: border-box;
+  background: #02838d;
 }
 
 
@@ -88,6 +106,6 @@
 @media (max-width: 768px) {
   .lateral {
     width: 50%;
-    z-index: 2;
+    z-index: 1;
   }
 }

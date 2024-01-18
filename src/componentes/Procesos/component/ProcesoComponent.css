@@ -24,11 +24,13 @@
 
 .content-title {
     font-size: 24px;
+    color: #dcdcdc;
 }
 
 .content-subtitle {
     margin-top: 20px;
     font-size: 18px;
+    color: #dcdcdc;
 }
 
 .content-button {
@@ -36,7 +38,7 @@
 }
 
 .content-button button {
-    padding: 10px 20px;
+    /*padding: 10px 20px;
     font-size: 18px;
     border-radius: 10px;
     background-color: #000045;
@@ -44,11 +46,23 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    outline: none;
+    outline: none;*/
+
+    color: #dcdcdc;
+    text-transform: uppercase;
+    padding: 7px 7px;
+    border: 1px solid #04BFAD;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #04BFAD;
+    transition: background .5s;
+    box-sizing: border-box;
+    transition: all .5s;
 }
 
 .content-button button:hover {
-    background-color: #000045;
+    /*background-color: #000045;*/
+    transform: scale(1.04);
 }
 
 .image-container {

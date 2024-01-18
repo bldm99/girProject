@@ -22,3 +22,12 @@
     padding: 10px 5px;
    
 }
+
+.imputx textarea{
+    outline: none;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 5px;
+    resize: none;
+    height: 70px;
+}

@@ -1,29 +1,43 @@
 .controles{
-    background: #F9FAFB;
+    padding: 1% 1%;
 }
 
 .controles .controles-cabezera{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 4px;
+    padding: 0px 10px;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #111628, #02040e);
+    border-radius: 8px;
+}
+.controles .controles-cabezera h2{ 
+    color: #dcdcdc;
+    text-transform: uppercase;
 }
 .controles .controles-cabezera button{
-    background: #000045 ;
-    background: #05019e;
-    color: white;
-    font-weight: bolder;
+    color: #dcdcdc;
     text-transform: uppercase;
-    padding: 4px 5px;
-    border-radius: 10px;
+    padding: 7px 7px;
+    border: 1px solid #04BFAD;
+    border-radius: 8px;
     cursor: pointer;
+    background: rgba(0, 0, 0, 0);
     transition: background .5s;
     box-sizing: border-box;
     transition: all .5s;
 }
 .controles .controles-cabezera button:hover {
-    background: #000045;
     transform: scale(1.04);
+}
+.controles p {
+    color: #dcdcdc;
+}
+
+.cont-table-controles{
+    background: linear-gradient(to bottom, #111628, #02040e);
+    padding: 10px 10px;
+    border-radius: 8px;
 }
 
 
@@ -38,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 2;
 }
 @media (max-width: 768px) {
     .modal-controles-Bldm{

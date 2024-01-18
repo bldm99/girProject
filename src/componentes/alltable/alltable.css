@@ -1,0 +1,83 @@
+
+.alltable::-webkit-scrollbar {
+    width: 0.3em;
+    /* Ancho de la barra de desplazamiento */
+}
+.alltable::-webkit-scrollbar-thumb {
+    background-color: #04BFAD;
+    border-radius: 8px;
+}
+
+.table-riesgos {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: white;
+}
+
+
+.table-riesgos .table-riesgos-header {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    font-weight: bolder;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+
+    color: white;
+}
+
+.table-riesgos-header tr:last-child th {
+    border-bottom: 1.5px solid #04BFAD;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    /* Establece el estilo y color de la línea de separación */
+}
+
+
+
+
+.table-riesgos tr th,
+.table-riesgos tr td {
+    font-size: 14px;
+    color: black;
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid rgba(192, 187, 187, 0.5);
+}
+
+.table-riesgos tr th {
+    padding: 18px;
+    border-spacing: 0;
+    /*color: aliceblue;
+      background-color: #000045;*/
+
+}
+
+.table-riesgos tr td {
+    cursor: pointer;
+}
+
+.table-riesgos tbody tr:hover {
+    background: rgb(222, 220, 222);
+
+}
+
+
+.table-riesgos .td-unico {
+
+
+    /*color: #2b2a2a;*/
+}
+
+.table-riesgos .td-unico span {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 2px 3px;
+    /*text-transform: uppercase;*/
+}

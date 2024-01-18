@@ -1,0 +1,119 @@
+.formupdate {
+    /*font-family: 'Poppins', sans-serif;*/
+    font-family: system-ui;
+    /*margin: 80px 0;*/
+    width: 70%;
+    height: 90%;
+    position: relative;
+    overflow: hidden;
+    font-size: calc(1rem * .9);
+    background: #f5f5f7; 
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.formupdate .up-title{
+    color: white;
+    border-radius: 8px 8px 0px 0px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #172026;
+}
+
+
+
+.formupdate .cont-update  {
+    display: grid; 
+    grid-template-columns: 20% 79%;
+    gap: 1%;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.cont-update .u-opciones  {
+    color: white;  
+    border-radius: 8px;
+    padding: 2px 7px;   
+    background: #292942;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.u-opciones .u-cont ul {
+    list-style: none;  
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    
+}
+.u-opciones .u-cont ul li {
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    padding: 2px 2px;
+    
+    
+}
+.u-opciones .u-cont ul li:hover {
+    background: #0e9767;
+    border-radius: 5px;
+}
+.cont-update .u-componentes  {
+    background: white;    
+    border-radius: 8px;   
+    padding: 2px 7px; 
+  
+}
+
+
+.formupdate .for-save {
+    width: 100%;
+    display: flex;
+    color: white;
+    border-radius: 0px 0px 7px 7px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0px;
+    
+}
+.formupdate .for-save  .for-botones {
+    width: 98%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+.formupdate .for-save button {
+    background: #171728;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+
+.formupdate .for-save button:hover {
+    background-color: rgb(196, 7, 7);
+    transform: scale(1.1);
+}
+
+
+
+
+@media (max-width: 768px) {
+    .formupdate {
+        width: 90%;
+    }
+
+}

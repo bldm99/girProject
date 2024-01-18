@@ -1,29 +1,20 @@
-
-.calor{
+.calor {
     background: greenyellow;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 70px;
     height: 70px;
-    padding: 20px;
+    /*padding: 20px;*/
     box-sizing: border-box;
     border-radius: 5px;
 }
-.calor:hover{
-    background: greenyellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 70px;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 5px;
+
+.calor:hover {
     transform: scale(1.1);
 }
 
-.calor .circle-c{
+.calor .circle-c {
     box-sizing: border-box;
     cursor: pointer;
     width: 20px;
@@ -32,4 +23,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 480px) {
+    .calor {
+        width: 65px;
+        height: 65px;
+
+    }
 }
