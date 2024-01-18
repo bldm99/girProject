@@ -8,7 +8,8 @@ import axios from "axios";
 //const URLdesrrollo = "https://girapi.bladimirchipana.repl.co/"
 
 //Desrrollo Poruccion
-const URLdesrrollo = "https://490fb1df-9627-4ae2-9252-7a7ddbeb5470-00-3j4e9qkfg6jac.picard.replit.dev/"
+//const URLdesrrollo = "https://490fb1df-9627-4ae2-9252-7a7ddbeb5470-00-3j4e9qkfg6jac.picard.replit.dev/"
+const URLdesrrollo = "https://girapi-dev-prxd.4.us-1.fl0.io/"
 
 const net = "http://localhost:5251/prueba/listar"
 
